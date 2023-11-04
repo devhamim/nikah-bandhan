@@ -1,0 +1,219 @@
+.cs-profile img.cs-image-lg{
+    z-index: 0;
+    width: 100%;
+    margin-bottom: 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+}
+
+.cs-profile-desc p
+{
+  position: absolute;
+  bottom: 40px;
+  color: white;
+  left: 15px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.cs-profile-desc h1
+{
+  position: absolute;
+  bottom: 60px;
+  color: white;
+  left: 15px;
+  text-shadow: 2px 2px 4px #000000;
+}
+.cs-profile-desc a{
+  color: white;
+}
+
+.cs-profile-btns{
+ width: 75%;
+}
+
+
+    /*xs: 480,
+    sm: 768,
+    md: 992,
+    lg: 1200*/
+
+@media (max-width:768px)
+{
+  .cs-profile-desc>h1{
+    position: absolute;
+    bottom: 60px;
+    color: white;
+    left: 10px;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight: 700;
+    font-size:14px;
+  }
+  .cs-profile-desc>p{
+    position: absolute;
+    bottom: 40px;
+    color: white;
+    left: 10px;
+    text-shadow: 2px 2px 4px #000000;
+    font-size:12px;
+  }
+  .cs-image-profile
+  {
+
+      margin: -45px 10px 0px 25px;
+      z-index: 9;
+      width: 25%;
+  }
+}
+
+
+
+.cs-image-profile
+{
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%;
+}
+
+.btn-cover
+    {
+        position:absolute;
+        top:100px;
+        left: 60px;
+        cursor: pointer;
+        z-index: 10;
+    }
+.btn-profilepic
+{
+  position: absolute;
+  bottom: 50px;
+  left: 60px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.btn-cover-cancel{
+    position: absolute;
+    bottom: 120px;
+    left: 20px;
+    display: none;
+    z-index: 11;
+}
+
+.btn-cover-submit{
+    position: absolute;
+    bottom: 120px;
+    left: 150px;
+    display: none;
+    z-index: 11;
+}
+
+.btn-profilepic-cancel{
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    display: none;
+    z-index: 12;
+}
+
+.btn-profilepic-submit{
+    position: absolute;
+    bottom: 40px;
+    left: 150px;
+    display: none;
+    z-index: 12;
+}
+
+.crop-profilepic-container{
+  /*position: absolute;*/
+  bottom: 10px;
+  left: 10px;
+  max-height: 200px !important;
+  max-width: 200px !important;
+}
+
+
+
+.box-top
+{
+  margin-top:-24px;
+  margin-left: -9px;
+  margin-right: -9px;
+  padding-bottom: 0px;
+}
+
+.box-top-right
+{
+  /*margin-top:-14px;
+  margin-left: -8px;
+  margin-right: -8px;*/
+}
+
+
+.crop-cover-image{
+    max-width: 100%;
+}
+
+.input_box{
+color:#808080;
+width:100%;
+/*height:30px;*/
+padding:5px 0 0 5px;
+border:solid #b4bbcd 1px;
+outline:none;
+resize:none;
+border-radius: 3px;
+}
+
+.spread_box{
+color:#808080;
+width:100%;
+/*height:30px;*/
+padding:5px 0 0 5px;
+border:solid #b4bbcd 1px;
+outline:none;
+resize:none;
+border-radius: 3px;
+}
+
+.comment_box{
+color:#808080;
+width:100%;
+padding:2px 5px 2px 5px; /* up right down left*/
+border:solid #b4bbcd 1px;
+outline:none;
+resize:none;
+border-radius: 3px;
+height:27px;
+}
+@-moz-document url-prefix() {
+    textarea.comment_box {
+        height: 2em;
+    }
+}
+
+.logo-and-info {
+  margin: 0;
+  padding: 10px;
+  min-height: 60px;
+}
+.shop-logo {
+float:left;
+width:50px;
+overflow:hidden;
+}
+.shop-info {
+overflow:hidden;
+word-wrap: break-word;
+font-size: 16px;
+}
+
+img.shopLogo
+{
+
+  margin-bottom:10px;
+
+}

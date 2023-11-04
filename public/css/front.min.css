@@ -1,0 +1,1 @@
+#backtop{position:fixed;left:auto;right:120px;top:auto;bottom:20px;outline:0;overflow:hidden;color:#fff;text-align:center;background-color:rgba(49,79,96,.84);height:40px;width:40px;line-height:40px;font-size:14px;border-radius:2px;cursor:pointer;transition:all .3s linear;z-index:999999;opacity:1;display:none}#backtop:hover{background-color:#9c27b0}#backtop.mcOut{opacity:0}

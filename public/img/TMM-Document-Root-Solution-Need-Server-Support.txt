@@ -1,0 +1,68 @@
+Problem Identified:
+===============
+
+TMM web application is accessing another url.
+The url is public/
+
+Example:
+
+Main URL:
+ https://www.taslimamarriagemedia.com/page/about-us
+
+Access another public URL:
+https://www.taslimamarriagemedia.com/public/page/about-us
+
+Problem Solved:
+=============
+
+Actually it is another way to access the webapp
+I've fixed it by updating your Document Root on cPanel in our server.
+public/ URL is gone!
+
+Example:
+
+Main URL:
+http://tmm.beautycrazy.xyz/page/about-us
+
+Url able to access public url:
+http://tmm.beautycrazy.xyz/public/page/about-us
+
+We are success & we was able to solve this problem in our server.
+I want to do this same process in TMM web server.
+
+How we solved this:
+===============
+
+Just we added "public sub directory in Document Root."
+Here is screenshot==>> https://prnt.sc/qpe0fd
+
+This is the actual solution for this problem. We was able to do this because of our domain is addon domain & subdomain.
+
+In main domain we was unable to to add  "public sub directory in Document Root." 
+
+Here is screenshots:
+==>> http://prntscr.com/qp62dm 
+==>> http://prntscr.com/qp62kn
+
+how to change document root in cpanel main domain
+===========================================
+
+Screenshot from google search==>> https://prnt.sc/qpe4bv
+
+Here we need your server support.
+
+Please note that, you will need to have root SSH access to perform these steps.
+
+Please follow this==>> https://www.buycpanel.com/1202015-changing-a-document-root-in-cpanel/
+
+Another link==>> https://www.interserver.net/tips/kb/change-primary-domain-document-root-cpanelwhm/
+
+Yup! The latter process may seem a little complex, but actually it’s not. Just carefully follow these directions and you’ll be fine. Good luck!
+
+ If you need any further assistance, please contact
+
+
+
+
+
+

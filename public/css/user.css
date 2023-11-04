@@ -1,0 +1,30 @@
+/**********************************************/
+
+/* On screens that are 992px wide or less, the background color is blue */
+@media screen and (max-width: 992px) {
+
+}
+
+/* On screens that are 768px wide or less, the background color is olive */
+@media screen and (max-width: 768px) {
+
+}
+
+/* On screens that are 576px wide or less, the background color is olive */
+@media screen and (max-width: 576px) {
+
+}
+/**********************************************/
+
+
+.main-raised {
+    margin-top:60px;
+}
+
+.profile-content{
+    margin-top: -20px;
+}
+
+.user-container{
+    min-height: 500px;
+}

@@ -1,0 +1,1 @@
+[16-Jul-2023 17:38:49 Asia/Dhaka] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 35808257 bytes) in /home/vipmarri/public_html/vendor/intervention/image/src/Intervention/Image/Gd/Commands/ResizeCommand.php on line 58

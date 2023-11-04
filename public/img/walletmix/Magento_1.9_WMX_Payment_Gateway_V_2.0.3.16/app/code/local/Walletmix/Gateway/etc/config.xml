@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Walletmix_Gateway>
+			<version>1.1.8.15</version>
+		</Walletmix_Gateway>
+	</modules>
+	
+	<global>
+		<models>
+			<gateway>
+				<class>Walletmix_Gateway_Model</class>
+			</gateway>
+		</models>
+		<helpers>
+			<gateway>
+				<class>Walletmix_Gateway_Helper</class>
+			</gateway>
+		</helpers>
+		<blocks>
+			<gateway>
+				<class>Walletmix_Gateway_Block</class>
+			</gateway>
+		</blocks>
+	</global>
+  
+	<default>
+		<payment>
+			<gateway>
+				<model>gateway/standard</model>
+				<active>1</active>
+				<merchant_id>Walletmix123456</merchant_id>
+				<order_status>pending</order_status>
+				<title>Visa, Master, Amex - Walletmix</title>
+				<payment_action>sale</payment_action>
+				<allowspecific>0</allowspecific>
+				<sort_order>1</sort_order>
+			</gateway>
+		</payment>
+	</default>
+  
+	<frontend>
+		<routers>
+			<gateway>
+				<use>standard</use>
+				<args>
+					<module>Walletmix_Gateway</module>
+					<frontName>gateway</frontName>
+				</args>
+			</gateway>
+		</routers>
+	</frontend>
+	
+</config>

@@ -1,0 +1,253 @@
+/**********************************************/
+
+/* On screens that are 992px wide or less, the background color is blue */
+@media screen and (max-width: 992px) {
+
+}
+
+/* On screens that are 768px wide or less, the background color is olive */
+@media screen and (max-width: 768px) {
+
+}
+
+/* On screens that are 576px wide or less, the background color is olive */
+@media screen and (max-width: 576px) {
+
+}
+/**********************************************/
+
+
+
+.site-title{
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    z-index: 300;
+    right: 0;
+    height: 100px;
+
+
+}
+
+.brand h1{
+    font-size: 30px !important;
+}
+
+.brand h3{
+    font-size: 20px !important;
+}
+
+
+/* On screens that are 992px wide or less, the background color is blue */
+@media screen and (max-width: 992px) {
+
+.brand h1{
+    font-size: 22px !important;
+}
+
+.brand h3{
+    font-size: 20px !important;
+}
+
+}
+
+/* On screens that are 768px wide or less, the background color is olive */
+@media screen and (max-width: 768px) {
+.brand h1{
+    font-size: 19px !important;
+}
+
+.brand h3{
+    font-size: 16px !important;
+}
+
+
+}
+
+/* On screens that are 576px wide or less, the background color is olive */
+@media screen and (max-width: 576px) {
+.brand h1{
+    font-size: 18px !important;
+}
+
+.brand h3{
+    font-size: 15px !important;
+}
+
+.site-title{
+    top:60px;
+}
+
+
+}
+
+
+.front-brand{
+    margin-top: -240px;
+}
+
+.welcome-front-cover{
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    z-index: 300;
+    right: 0;
+    min-height: 515px;
+}
+
+
+.welcome-front-cover-inner{
+    font-size: 33px !important;
+    background: rgba(0,0,0,0.01);
+    padding: 3px 15px;
+    border-radius: 4px;
+    color: #eee;
+    min-height: inherit;
+
+}
+
+.bold{
+    font-weight: bold;
+}
+
+
+
+
+.custom-shadow {
+    /*font-weight: bold;*/
+    text-shadow: 0 0 20px #000;
+}
+
+.site-title{
+/*    font-size: 33px !important;
+    background: rgba(0,0,0,0.7);
+    padding: 3px 15px;
+    border-radius: 4px;
+    color: #eee;
+    min-height: 200px;*/
+}
+
+
+.site-promo {
+    position: absolute;
+    left: 0;
+    top: 280px;
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    z-index: 300;
+    right: 0;
+}
+.site-promo-heading{
+    font-size: 33px !important;
+    /*background: rgba(0,0,0,0.7);*/
+    /*background: rgba(255,255,255,0.5);*/
+    padding: 3px 15px;
+    border-radius: 4px;
+    color: #eee;
+
+}
+
+
+.promo {
+    position: absolute;
+    width: 900px;
+    /*text-align: center;*/
+    z-index: 300;
+    margin: auto;
+    top: 300px;
+    right: 0;
+    left: 0;
+}
+
+.promo-form {
+    background: rgba(0,0,0,0.7);
+    /*background: rgba(255,255,255,0.5);*/
+    padding: 3px 15px;
+    border-radius: 4px;
+}
+
+
+.table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th {
+
+    text-align: left !important;
+}
+
+
+.cp-round{
+    border-radius: 4px;
+}
+
+.no-padding{
+    padding:0 !important;
+}
+
+.card-tab-pan-800 .tab-pane
+{
+    min-height: 800px !important;
+}
+
+.card-tab-pan-400 .tab-pane
+{
+    min-height: 400px !important;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+ 
+
+.profile_basic {
+    display: inline;
+    float: left;
+    margin: 0 0 10px;
+    line-height: 16px;
+}
+
+
+
+.profile-data-label {
+    margin-top: 2px;
+    float: left;
+    width: 140px;
+    font: normal 12px arial;
+    color: #b1b3b9;
+ 
+}
+
+.profile-data-info {
+    float: left;
+     
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.width-140
+{
+    width: 140px;
+}
+
+.pr-rating-area{
+  font-size: 20px;
+  color:red;
+  letter-spacing:-2px;
+}
+
+.r-fill:before{
+  content: "\2605";
+  position: absolute;
+}
+
+#no-ads > div.google-auto-placed {
+display:none !important;
+}
+
+ 

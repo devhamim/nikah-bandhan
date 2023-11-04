@@ -1,0 +1,208 @@
+<?php
+	
+	/* begining */
+	$merchant_id = Mage::getStoreConfig('payment/gateway/merchant_id',Mage::app()->getStore()); 
+	$app_name = Mage::getStoreConfig('payment/gateway/web_app_name',Mage::app()->getStore()); 
+	
+	
+	
+	// Retrieve order
+	$_order = new Mage_Sales_Model_Order();
+	$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+	$_order->loadByIncrementId($orderId);
+	
+	
+	/* customer part */
+	$customer = Mage::getSingleton('customer/session')->getCustomer();
+    $customerAddressIdBilling = $customer->getDefaultBilling();
+	$customerAddressIdShipping = $customer->getDefaultShipping();
+    
+	
+	$BillingAddress = $_order->getBillingAddress()->getData();
+	$ShippingAddress = $_order->getShippingAddress()->getData();
+	
+	$fullname = $BillingAddress["firstname"].' '.$BillingAddress["lastname"] ;
+	$email = $BillingAddress["email"];
+	
+	$pattern='/index.php\//';
+	$home_url=preg_replace($pattern,'',Mage::getBaseUrl());
+	
+	$server_url = $home_url;
+	
+	$storeName = Mage::app()->getStore()->getName();
+	$storeId = Mage::app()->getStore()->getStoreId();
+
+	$cart_info = $merchant_id.','.$server_url.','.$storeId.':'.$storeName.','.$email.','.$orderId;
+	
+	$options=base64_encode('s='.$server_url.',i='.$_SERVER['REMOTE_ADDR']);
+	
+	
+	$items = $_order->getAllVisibleItems();
+	
+	$product_wtihquantity = ''; 
+	$length = 0;
+	$quantity = 0;
+	
+	foreach ($items as $itemId => $item){
+		$price=$item->getPrice();
+		$t = $item->getQtyToInvoice() * $price;
+		$product_wtihquantity.='{'.$item->getQtyToInvoice() . 'x' . $item->getName() . '['.$price.']=['.$t.']}+';
+		$quantity += $item->getQtyToInvoice();
+		$length++;
+	}
+	
+	$shipping = $_order->getShippingAmount();
+	$coupon = abs($_order->getBaseDiscountAmount());
+	
+	$order_date=date('Y-m-d h:i:s',strtotime($_order->getCreatedAtStoreDate()));
+	$products = "Order-$orderId"."_".$order_date;
+	
+	$product_wtihquantity.='{shipping rate:'.$shipping.'}-{coupon amount:'.$coupon.'}='.number_format( $_order->getBaseGrandTotal(), 2, '.', '' );
+	
+	$redirect_url = $home_url.'gateway/payment/response';
+	$cancel_url = $home_url.'gateway/payment/cancel';
+
+
+	
+	$getServerDetails = file_get_contents('https://epay.walletmix.com/check-server');
+	$getServerDetails = json_decode($getServerDetails);
+
+
+	Mage::getSingleton('core/session')->unsWalletmixServer();
+	Mage::getSingleton('core/session')->setWalletmixServer($getServerDetails->selectedServer);
+	
+	if($getServerDetails->selectedServer){	// True = New Server , False = Old Server
+
+		$cart_info_v2 = $merchant_id.','.$server_url.','.$app_name; 
+
+		$wmx_username = Mage::getStoreConfig('payment/gateway/wmx_username',Mage::app()->getStore()); // need to update in admin
+		$wmx_password = Mage::getStoreConfig('payment/gateway/wmx_password',Mage::app()->getStore());  // need to update in admin
+		$access_app_key = Mage::getStoreConfig('payment/gateway/wmx_app_key',Mage::app()->getStore());  // need to update in admin
+
+
+		$encodeValue = base64_encode($wmx_username.':'.$wmx_password);
+		$auth = 'Basic '.$encodeValue;
+				
+		$extra_data = array(
+	
+		);
+		$extra_data = json_encode($extra_data);
+		
+
+
+		//v2
+		$params = array(
+		"wmx_id" => $merchant_id,
+		"merchant_order_id" => $orderId,
+		"merchant_ref_id" => uniqid(),
+		"app_name" => $app_name,
+		"cart_info" => $cart_info_v2,
+		
+		"customer_name" => $fullname,
+		"customer_email" => $email,
+		"customer_add" => $BillingAddress["street"],
+		"customer_city" => $BillingAddress["city"],
+		"customer_country" => $BillingAddress["country_id"],
+		
+		"customer_postcode" => $BillingAddress["postcode"],
+		"customer_phone" => $BillingAddress["telephone"],
+		
+		"shipping_name" => $ShippingAddress["firstname"]." ".$ShippingAddress["lastname"],
+		"shipping_add" => $ShippingAddress["street"],
+		"shipping_city" => $ShippingAddress["city"],
+		"shipping_country" => $ShippingAddress["country_id"],
+		"shipping_postCode" => $ShippingAddress["postcode"],
+		
+		"product_desc" => Mage::helper("gateway")->remove_amp_charecter($product_wtihquantity),
+		
+		"amount" => number_format( $_order->getBaseGrandTotal(), 2, '.', '' ),
+		"currency" => $_order->getOrderCurrency()->getCode(),
+		"extra_json" => $extra_data,
+		"options" => $options,
+		"callback_url" => $redirect_url ,
+		"access_app_key" => $access_app_key,
+		"authorization" => $auth,
+		);
+
+
+		
+		$response = Mage::helper("gateway")->httpPost($getServerDetails->url,$params);
+		
+		$response_d = json_decode($response);
+		$status_code = $response_d->statusCode;
+
+		
+
+		if($status_code === '1000'){
+			
+			$token = $response_d->token;
+
+			 Mage::getSingleton('core/session')->unsWalletmixToken();
+			 Mage::getSingleton('core/session')->setWalletmixToken($token);
+
+			$wmx_url = $getServerDetails->bank_payment_url."/".$token;
+
+				header("Location:".$wmx_url);
+				exit;
+
+			}else{
+
+			echo $response;
+		} 
+		
+	}
+	else{ 
+		
+		
+		//v1
+		$walletmix_args=array(
+		'merchant_id' => $merchant_id,
+		'order_info' => $cart_info,
+		'amount' =>  number_format( $_order->getBaseGrandTotal(), 2, '.', '' ),
+		
+		'cus_name' => $fullname." : ".$BillingAddress["company"],
+		'cus_add1' => $BillingAddress["street"],
+		'cus_add2' => $BillingAddress["street"],
+		'cus_city' => $BillingAddress["city"],
+		'cus_state' => $BillingAddress["state"],
+		'cus_postcode' => $BillingAddress["postcode"],
+		'cus_country' => $BillingAddress["country_id"],
+		'cus_phone' => $BillingAddress["telephone"],
+		'cus_email' => $email,
+		
+		'ship_name' => $ShippingAddress["firstname"]." ".$ShippingAddress["lastname"],
+		'ship_add1' => $ShippingAddress["street"],
+		'ship_add2' => $ShippingAddress["street"],
+		'ship_city' => $ShippingAddress["city"],
+		'ship_state' => $ShippingAddress["state"],
+		'ship_postcode' => $ShippingAddress["postcode"],
+		'ship_country' => $ShippingAddress["country_id"],
+		
+		'currency' => $_order->getOrderCurrency()->getCode(),
+		'callback_url' => $redirect_url ,
+		'cancel_url' =>$cancel_url,
+		'opt_a' => $options,
+		'description' => $product_wtihquantity,
+		'bankdescription' => $products,
+		'product_length' => $length,
+		'quantity' => $quantity,
+		); 	
+		
+	?>
+	
+	
+	<img src="<?php echo $this->getSkinUrl('images/gateway/walletmix_logo.png') ?>" alt="Walletmix Payment Gateway" style="margin:50px 50px;" />
+	<h3>Walletmix.com</h3>
+	<form name="gatewayform" method="post" action="https://www.walletmix.com/site/payprocess">
+		<?php
+			foreach($walletmix_args as $key => $value){
+				echo "<input type='hidden' name='$key' value='$value'/>";
+			}
+		?>
+	</form>
+	
+	<script type="text/javascript">
+		document.gatewayform.submit();
+	</script>
+	
+<?php } ?>

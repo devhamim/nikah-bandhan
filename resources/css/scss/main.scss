@@ -1,0 +1,89 @@
+@import "variables";
+.perfect-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizon-center {
+    display: flex;
+    justify-content: center;
+}
+
+.vertic-center {
+    display: flex;
+    align-items: center;
+}
+
+.inline-perfect-center {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-color {
+    color: $brand-color !important;
+}
+
+.brand-bg-color {
+    background-color: $brand-bg-color !important;
+}
+
+.second-brand-color {
+    color: $second-brand-color !important;
+}
+
+.second-brand-bg-color {
+    background-color: $second-brand-bg-color !important;
+}
+
+.banner-search-form {
+    label {
+        color: darken($color: #fff, $amount: 2);
+    }
+}
+
+.home-banner-grad {
+    background: rgb(2, 0, 36);
+    background-image: linear-gradient(
+        90deg,
+        lighten($brand-bg-color, 5) 0%,
+        lighten($brand-color, 5) 100%
+    );
+}
+
+.vip-text-white-darken {
+    color: $vip-text-white-darken !important;
+}
+
+.owl-carousel.show-nav-hover .owl-nav button.owl-prev {
+    left: -15px;
+    background-color: $brand-bg-color !important;
+}
+
+.owl-carousel.show-nav-hover .owl-nav button.owl-next {
+    left: -15px;
+    background-color: $brand-bg-color !important;
+}
+
+.vip-li-icon::before {
+    content: "\272A";
+}
+
+.head-height {
+    height: 40px;
+}
+
+#header .header-row {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    align-self: center !important;
+    max-height: 100%;
+}
+
+.vip-activity-card {
+    width: 100%;
+    height: 50px;
+    border: 1px solid black;
+}

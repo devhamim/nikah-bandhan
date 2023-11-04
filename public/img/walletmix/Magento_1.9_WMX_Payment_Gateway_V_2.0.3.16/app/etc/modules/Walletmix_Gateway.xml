@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Walletmix_Gateway>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Walletmix_Gateway>
+    </modules>
+</config>

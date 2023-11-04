@@ -1,0 +1,42 @@
+.tarek-py-15 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.tarek-text-1 {
+    color: #0194a8 !important;
+}
+
+.tarek-font-1 {
+    font-size: 22px !important;
+    font-weight: 500;
+}
+
+.tarek-font-18 {
+    font-size: 18px !important;
+}
+
+.tarek-background-w1 {
+    background-color: #eff8fe !important;
+}
+
+.container-full {
+    width: 100% !important;
+}
+
+.tarek-vip-meet {
+    color: #3f3f3f;
+    font-family: Raleway;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 32px;
+    margin-top: 15px;
+    white-space: pre;
+    text-align: center;
+}
+
+.vip-btn-primary {
+    color: #fff;
+    background-color: #00bcd5;
+    border-color: #00bcd5;
+}

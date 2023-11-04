@@ -1,0 +1,7 @@
+Options -Indexes
+# Options +FollowSymLinks
+# Options +SymLinksIfOwnerMatch
+# Satisfy Any
+RewriteEngine on
+
+RewriteRule ([^/]*\..+) p_univ.php [NC]

@@ -1,0 +1,13 @@
+{
+    "name": "cp/chat",
+    "description": "Chat System for connectingpark",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "M K Masud Hasan",
+            "email": "masudbdm@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
