@@ -254,11 +254,11 @@
                     @foreach ($stories as $post)
 					<div class="col">
 						<div class="story__item">
-							<div class="story__inner">
+							<div class="story__inner mx-2">
 								<div class="story__thumb">
 									<a href="{{ route('success.stories_details', $post->id) }}">
-										<img src="{{ route('imagecache', ['template' => 'medium', 'filename' => $post->fiName()]) }}" alt="dating thumb">
-
+										{{-- <img class="card-img-top" src="{{ route('imagecache', ['template' => 'medium', 'filename' => $post->fiName()]) }}" alt="Card Image" /> --}}
+										<img class="card-img-top" src="{{ asset('storage/stories') }}/{{ $post->image_name }}" alt="Card Image" />
 									</a>
 									
 								</div>
