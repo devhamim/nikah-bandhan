@@ -26,6 +26,19 @@ use Inertia\Inertia;
 |
 */
 
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
+
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
 require __DIR__ . '/auth.php';
 
 Route::get('/storage/link', function () {
@@ -42,6 +55,7 @@ Route::get('packages', [WelcomeController::class, 'packagelist'])->name('package
 Route::get('dashboard', [WelcomeController::class, 'dashboard'])->name('dashboard');
 Route::get('/registration/user', [WelcomeController::class, 'registrationUser'])->name('registration.user');
 Route::get('categories/{id}/{slug?}', [WelcomeController::class, 'categories'])->name('categories');
+Route::get('/imagecache/{template}/{filename}', 'ImageController@getImage')->name('imagecache');
 
 Route::group(['prefix' => 'blogs'], function() {
 
@@ -352,6 +366,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
     Route::get('user/details/print/{profile}', [UserController::class, 'userDetailsPrint'])->name('user.userDetailsPrint');
 
 });
+
+
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'auther'], function () {
     Route::get('message/dashboard/{userto?}', [UserController::class, 'messageDashboard'])->name('user.messageDashboard');

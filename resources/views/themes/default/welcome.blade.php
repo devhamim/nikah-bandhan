@@ -256,7 +256,10 @@
 						<div class="story__item">
 							<div class="story__inner">
 								<div class="story__thumb">
-									{{-- <a href="{{ route('success.stories_details', $post->id) }}"><img src="{{ route('imagecache', ['template' => 'medium', 'filename' => $post->fiName()]) }}" alt="dating thumb"></a> --}}
+									<a href="{{ route('success.stories_details', $post->id) }}">
+										<img src="{{ route('imagecache', ['template' => 'medium', 'filename' => $post->fiName()]) }}" alt="dating thumb">
+
+									</a>
 									
 								</div>
 								<div class="story__content">
