@@ -51,7 +51,7 @@
     
     @include('partials.header')
     <div role="main" class="main">
-        {{-- @include('partials.homeOverlay') --}}
+       
 
 
         @yield('content')
@@ -70,7 +70,7 @@
 	</div>
     <!-- ================> Footer section end here <================== -->
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade mt-5" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -254,6 +254,7 @@
 	<script src="{{ asset('frontend') }}/js/swiper.min.js"></script>
 	<!-- <script src="assets/js/all.min.js"></script> -->
 	<script src="{{ asset('frontend') }}/js/wow.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
 	<script src="{{ asset('frontend') }}/js/lightcase.js"></script>
 	<script src="{{ asset('frontend') }}/js/jquery.countdown.min.js"></script>
 	<script src="{{ asset('frontend') }}/js/waypoints.min.js"></script>
@@ -271,6 +272,14 @@
 			arrows: false,
 		});
 	</script>
+   <script>
+     Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        icon: 'error',
+        confirmButtonText: 'Cool'
+      })
+   </script>
 
 	<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 	<script>
@@ -284,6 +293,58 @@
 		ga('set', 'transport', 'beacon');
 		ga('send', 'pageview')
 	</script>
+
+<script>
+    function getIp(callback) {
+        var ip = $(".ip").val();
+        // var ip = '72.229.28.185';
+        var infoUrl = 'https://ipinfo.io/json?ip=' + ip;
+        fetch(infoUrl, {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then((resp) => resp.json())
+            .catch(() => {
+                return {
+                    country: '',
+                };
+            })
+            .then((resp) => callback(resp.country));
+    }
+    const phoneInputField = document.querySelector(".input-mobile");
+    // get the country data from the plugin
+    // const countryData = window.intlTelInputGlobals.getCountryData();
+    // console.log(countryData);
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        //  initialCountry: "auto",
+        initialCountry: "bd",
+        geoIpLookup: getIp,
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        preferredCountries: ["bd", "us", "gb"],
+        placeholderNumberType: "MOBILE",
+        nationalMode: true,
+        // separateDialCode:true,
+        // autoHideDialCode:true,
+        customContainer: "w-100",
+        autoPlaceholder: "polite",
+        //  customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData)
+        // {
+        //     return "e.g. " + selectedCountryPlaceholder;
+        // },
+    });
+    //country changed event
+    phoneInputField.addEventListener("countrychange", function() {
+        // do something with iti.getSelectedCountryData()
+        // console.log(phoneInput.getSelectedCountryData().iso2);
+        // console.log(phoneInput.getSelectedCountryData());
+        $(".country_name").val(phoneInput.getSelectedCountryData().name);
+        $(".mobile_country").val(phoneInput.getSelectedCountryData().iso2);
+        $(".calling_code").val(phoneInput.getSelectedCountryData().dialCode);
+    });
+</script>
+
+
 	<script src="../../../../www.google-analytics.com/analytics.js" async></script>
 </body>
 </html>

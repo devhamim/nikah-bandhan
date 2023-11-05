@@ -75,57 +75,8 @@
 
 
     <!-- ================> Banner section start here <================== -->
-	<div class="banner padding-top padding-bottom bg_img" style="background-image: url({{ asset('frontend') }}/images/banner/bg.jpg);">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6 col-12">
-					<div class="banner__content wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s" style="margin-bottom: -15%;margin-top: 20%;">
-						<div class="banner__title">
-							<h2>Find your ture love</h2>
-							<p>Marrige with your perfect match is just a click away.</p>
-						</div>
-						<div class="banner__form">
-							<form class="user-mobile-check-form" id="userform" action="{{ route('register.custom') }}" method="post">
-                                @csrf
-								<div class="banner__list">
-									<!-- <label>I am a</label> -->
-									<div class="row">
-										<div class="col-12 my-3">
-											<!-- <label class="form-label"><span>Name</span></label> -->
-											<input type="text" class="form-control"  name="name" placeholder="Name">
-										</div>
-										<div class="col-6 my-3">
-											<!-- <label class="form-label"><span>Phone</span></label> -->
-											<input type="tel" class="form-control"  name="phone" placeholder="Phone">
-										</div>
-										<div class="col-6 my-3">
-											<!-- <label class="form-label"><span>Phone</span></label> -->
-											<input type="email" class="form-control"  name="email" placeholder="Email">
-										</div>
-										<div class="col-6 my-3">
-											<!-- <label class="form-label"><span>Phone</span></label> -->
-											<input type="password" class="form-control"  name="password" placeholder="Password">
-										</div>
-										<div class="col-6 my-3">
-											<!-- <label class="form-label"><span>Phone</span></label> -->
-											<input type="password" class="form-control"  name="password_confirmation" placeholder="Confirm Password">
-										</div>
-										
-									</div>
-								</div>
-								<button type="submit" class="default-btn reverse d-block"><span>Let's Begin!</span></button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-12">
-					<div class="banner__thumb banner__thumb--thumb1 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
-						<!-- <img src="assets/images/banner/01.png" alt="banner"> -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
+	@include('partials.homeOverlay')
     <!-- ================> Banner section end here <================== -->
 
 
@@ -156,6 +107,7 @@
 					</div>
 					<div class="col px-4">
 						<div class="about__item text-center">
+							<a href="{{ url('packages') }}">
 							<div class="">
 								<div class="about__thumb">
 									<img src="{{ asset('frontend') }}/images/road-map/4.png" alt="dating thumb">
@@ -167,9 +119,11 @@
 									</p>
 								</div>
 							</div>
+							</a>
 						</div>
 					</div>
 					<div class="col px-4">
+						<a href="{{ url('page/contact-us') }}">
 						<div class="about__item text-center">
 							<div class="">
 								<div class="about__thumb">
@@ -183,9 +137,11 @@
 								</div>
 							</div>
 						</div>
+						</a>
 					</div>
 					<div class="col px-4">
 						<div class="about__item text-center">
+							<a href="{{ url('https://www.facebook.com/vipmarriagemedia/') }}">
 							<div class="">
 								<div class="about__thumb">
 									<img src="{{ asset('frontend') }}/images/road-map/3.png" alt="dating thumb">
@@ -197,6 +153,7 @@
 									</p>
 								</div>
 							</div>
+							</a>
 						</div>
 					</div>
 					
@@ -316,7 +273,9 @@
 				<div class="row mt-5">
 					<div class="col-lg-6 col-sm-6 col-md-6 col-6 m-auto">
 						<div class="text-center">
-							<a class="btn btn-danger py-3 px-5 rounded" style="background-color: #E31190;" href="">Login</a>
+                                <button type="button" class="btn btn-danger text-white py-3 px-5 rounded"  style="background-color: #E31190;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Login
+                                  </button>
 							<a class="btn btn-danger py-3 px-5 rounded" style="background-color: #E31190;" href="{{ url('register') }}">Register</a>
 						</div>
 					</div>
@@ -328,3 +287,5 @@
     @endsection
     @push('js')
     @endpush
+
+	

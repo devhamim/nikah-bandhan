@@ -44,8 +44,6 @@ public function userLogin(Request $request)
   public function customRegistration(Request $request)
   {
 
-  
-
     $request->validate([
       'name' => 'required',
       'full_mobile' => 'required',
@@ -87,7 +85,7 @@ public function userLogin(Request $request)
         'active'  => true
     ]);
 
-    $user->registerSmsSend();
+    // $user->registerSmsSend();
     // dd($user->password_temp);
 
     $details = [

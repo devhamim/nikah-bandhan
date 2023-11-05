@@ -1,6 +1,6 @@
 <footer class="footer overflow-hidden">
 	<div class="footer__top bg_img" style="background:#000 ">
-		<div class="footer__newsletter wow fadeInUp" data-wow-duration="1.5s">
+		{{-- <div class="footer__newsletter wow fadeInUp" data-wow-duration="1.5s">
 			<div class="container">
 				<div class="row g-4 justify-content-center">
 					<div class="col-lg-6 col-12">
@@ -34,7 +34,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<div class="footer__toparea padding-top padding-bottom wow fadeInUp" data-wow-duration="1.5s">
 			<div class="container">
 				<div class="row g-5 g-lg-0">
@@ -46,13 +46,32 @@
 										<h4>Our Information</h4>
 									</div>
 									<div class="footer__content--desc">
-										<ul>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Customer Reviews</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Success Stories</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Business License</a></li>
+										
+										<h3 class="text-5 mb-3 " style="color: white">24 hours service</h3>
+										<ul class="list list-icons list-icons-lg">
+			
+			
+			
+										<a class="m-0 text-color-light text-white" href="https://wa.me/+8801767506668">+8801767-506668 (Whatsapp)</a> <br>
+										<a class="m-0 text-color-light text-white" href="https://wa.me/+8801927157200">+8801927-157200 (Whatsapp)</a> <br>
+			
+			
 										</ul>
+			
+			
+										<div class="alert alert-success d-none" id="newsletterSuccess">
+											<strong>Success!</strong> You've been added to our email list.
+										</div>
+										<div class="alert alert-danger d-none" id="newsletterError"></div>
+										<form id="newsletterForm" action="php/newsletter-subscribe.php" method="POST" class="mr-4 mb-3 mb-md-0 mt-4">
+											<div class="input-group input-group-rounded" style="width: 85%">
+												<input class="form-control form-control-sm bg-light" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
+												<span class="input-group-append">
+													<button class="btn btn-light text-color-dark" type="submit"><strong>GO!</strong></button>
+												</span>
+											</div>
+										</form>
+					
 									</div>
 								</div>
 							</div>
@@ -67,11 +86,15 @@
 									</div>
 									<div class="footer__content--desc">
 										<ul>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Manage Account</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Safety Tips</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Account Varification</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Safety and Security</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Membership Level</a></li>
+											<li><a class="m-0 text-color-light" href="{{ url('/') }}"><i class="far fa-dot-circle text-color-light"></i> Home</a></li>
+											<li class="pb-0 mb-0">
+												@foreach($menupages as $page)
+													<a class="mb-3 text-color-light" href="{{ route('page',$page->route_name) }}"><i class="far fa-dot-circle text-color-light"></i> {{$page->page_title}}</a> <br>
+												@endforeach
+											</li>
+											<li class="py-0 my-0"><a class="m-0 text-color-light" href="{{ url('/packages')}}"><i class="far fa-dot-circle text-color-light"></i> Our Packages</a></li>
+
+											<li ><a class="m-0 text-color-light" href="{{ url('/blog') }}"><i class="far fa-dot-circle text-color-light"></i> Blog</a></li>
 										</ul>
 									</div>
 								</div>
@@ -83,16 +106,40 @@
 							<div class="footer__inner">
 								<div class="footer__content">
 									<div class="footer__content--title">
-										<h4>Help Center</h4>
+										<h5 class="text-3 mb-3 text-white">FOLLOW US</h5>
 									</div>
 									<div class="footer__content--desc">
-										<ul>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Help center</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> FAQ</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Quick Start Guide</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Tutorials</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Associate Blog</a></li>
+										<ul class="social-icons">
+											<li class="social-icons-facebook">
+												<a href="{{$websiteParameter->fb_page_link}}" target="_blank" title="Facebook"><i
+														class="fab fa-facebook-f"></i></a>
+											</li>
+											<li class="social-icons-twitter">
+												<a href="{{$websiteParameter->twitter_url}}" target="_blank" title="Twitter"><i
+														class="fab fa-twitter"></i></a>
+											</li>
+											<li class="social-icons-linkedin">
+												<a href="{{$websiteParameter->linkedin_url}}" target="_blank" title="Linkedin"><i
+														class="fab fa-linkedin-in"></i></a>
+											</li>
+			
+											<li class="social-icons-linkedin">
+												<a href="{{$websiteParameter->instagram_url}}" target="_blank" title="Instagram"><i
+														class="fab fa-instagram"></i></a>
+											</li>
+			
+											<li class="social-icons-linkedin">
+												<a href="{{$websiteParameter->pinterest_url}}" target="_blank" title="Pinterest"><i
+														class="fab fa-pinterest"></i></a>
+											</li>
+			
 										</ul>
+										<style>
+											.footer__content--desc .social-icons li{
+												display: inline-block;
+											}
+										</style>
+										<a type="button" href="{{ url('/register') }}" class="btn btn-rounded btn-primary mt-3" style="background-color: #E31190">Registration</a>
 									</div>
 								</div>
 							</div>
@@ -102,17 +149,9 @@
 						<div class="footer__item">
 							<div class="footer__inner">
 								<div class="footer__content">
-									<div class="footer__content--title">
-										<h4>Community</h4>
-									</div>
+									
 									<div class="footer__content--desc">
-										<ul>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Privacy policy</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> End User Agreements</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Refund Policy</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Cookie policy</a></li>
-											<li><a href="#"><i class="fa-solid fa-angle-right"></i> Report abuse</a></li>
-										</ul>
+										<img src="{{ asset('img/pay3.png') }}" alt="" class="img-fluid" style="margin-left: -30px">
 									</div>
 								</div>
 							</div>
@@ -126,7 +165,7 @@
 	<div class="footer__bottom wow fadeInUp" data-wow-duration="1.5s">
 		<div class="container">
 			<div class="footer__content text-center">
-				<p class="mb-0">All Rights Reserved &copy; <a href="index.html">Nickah Bandhan</a> || Design By: CodexCoder</p>
+				<p class="mb-0">All Rights Reserved &copy; <a href="{{ url('/') }}">Nickah Bandhan</a> || Design By: nugortechit</p>
 			</div>
 		</div>
 	</div>
