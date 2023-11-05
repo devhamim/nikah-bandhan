@@ -198,32 +198,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     $me=auth()->user();
 @endphp
     <div class="body" style="background-color: #e7e6e6">
-        @include('user.parts.header')
+        @include('partials.header')
+    <div role="main" class="main">
+       
 
-        <div role="main" class="main">
 
-           @auth
-           @include('user.parts.subHead')
-           @endauth
+        @yield('content')
 
-            @yield('content')
-        </div>
 
-        @include('partials.footer')
     </div>
 
-    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel"
+    @include('partials.footer')
+
+
+    <!-- ================> Footer section start here <================== -->
+	
+
+	<div class="side_button">
+		<a class="btn btn-success py-3 px-1 rounded fa-beat" style="background-color: #E31190;" href="{{ url('register') }}"><p><i class="fa-solid fa-user-tie fa-beat"></i></p> Register</a>
+	</div>
+    <!-- ================> Footer section end here <================== -->
+
+    <div class="modal fade mt-5" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div class="
+                    <div
+                        class="
                                 featured-box featured-box-default
                                 text-left
                                 mt-0
                             ">
                         <div class="box-content">
-                            <h4 class="
+                            <h4
+                                class="
                                         color-primary
                                         font-weight-semibold
                                         text-4 text-uppercase
@@ -235,55 +244,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 @csrf
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label class="
+                                        <label
+                                            class="
                                                     font-weight-bold
                                                     text-dark text-2
-                                                ">E-mail Address</label>
-                                        <input type="text" value="" name="email" class="
+                                                ">E-mail
+                                            Address</label>
+                                        <input type="text" value="" name="email"
+                                            class="
                                                     form-control form-control-lg
-                                                " required />
+                                                "
+                                            required />
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label class="
+                                        <label
+                                            class="
                                                     font-weight-bold
                                                     text-dark text-2
                                                 ">Password</label>
-                                        <input type="password" value="" name="password" class="
+                                        <input type="password" value="" name="password"
+                                            class="
                                                     form-control form-control-lg
-                                                " required />
+                                                "
+                                            required />
                                     </div>
                                 </div>
-                                <div class="form-row">
+                                <div class="row my-3">
                                     <div class="form-group col-6">
                                         <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="remember" />
-                                                Remember Me
-                                            </label>
+                                            <div class="row">
+                                                <div class="col-2"><input type="checkbox" name="remember" /></div>
+                                                <div class="col-9"> <label class="form-label">Remember Me</label></div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group col-6 ">
+                                    <div class="form-group col-6 text-end">
                                         <a href="{{ route('forget.password.get') }}" class="float-right">Forgot
                                             Password</a>
                                     </div>
 
                                 </div>
 
-                                <div class="
-                                            form-row
-                                            d-fled
-                                            justify-content-center
-                                        ">
-                                    <input type="submit" value="Login" class="
+                                <div
+                                    class="row">
+                                        <div class="col-lg-6">
+                                            <input type="submit" value="Login"
+                                        class="
                                                 btn btn-primary btn-modern
                                                 float-right
-                                            " data-loading-text="Loading..." />
+                                            "
+                                        data-loading-text="Loading..." style="background-color: #E31190;" />
+                                        </div>
+                                        <div class="col-lg-6 m-auto text-center">
+                                            <a href="{{ url('register') }}" class="" >Register Now</a>
+                                        </div>
+                                    
+
+
+                                    <div class="text-right mt-2" >
+                                        
+
+                                    </div>
                                 </div>
                             </form>
                         </div>
+
+
                     </div>
                 </div>
             </div>

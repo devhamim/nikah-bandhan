@@ -1,4 +1,4 @@
-@extends('user.master.usermaster')
+@extends('master.master')
 @php
     $me=auth()->user();
 @endphp
@@ -21,14 +21,13 @@
 
 @endpush
 @section('content')
-<div style="background-color: #f9ea8f;
-background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
+<div style="background-color: #f9ea8f; background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
     <div class="row text-center">
         <div class="col-md-12 text-center">
             <div class="overflow-hidden mb-1">
             </div>
             <form action="{{ route('physicalPost', $me->id) }}" role="form" method="POST"
-                class="needs-validation" enctype="multipart/form-data">
+                class="needs-validation mt-5 py-5" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-12 text-center">
                     <h5>Update Physical Attribute and Career</h5>
@@ -37,9 +36,9 @@ background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
                         <div class="col-md-5">
                            <div class="card mb-4">
                                <div class="card-body">
-                                <div class="form-group row">
+                                <div class="form-group row my-3">
                                     <label for=""  class="col-md-4">Height</label>
-                                    <select class="form-control col-md-8" name="height" id="" required>
+                                    <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="height" id="" required>
                                         <option value="">Select...</option>
                                         @foreach($userSettingFields[14]->values as $value)
                                             <option value="{{ $value->title }}">
@@ -59,9 +58,9 @@ background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
                                 </div> --}}
                                 {{-- <input type="hidden" name="disability" value="no"> --}}
 
-                                <div class="form-group row">
+                                <div class="form-group row my-3">
                                     <label for=""  class="col-md-4">Blood Group</label>
-                                    <select class="form-control col-md-8" name="blood_group" id="" required>
+                                    <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="blood_group" id="" required>
                                         <option value="">Select...</option>
                                         @foreach($userSettingFields[24]->values as $value)
                                             <option value="{{ $value->title }}">
@@ -70,19 +69,19 @@ background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
                                     </select>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for=""  class="col-md-4">Education Level</label>
-                                    <select class="form-control col-md-8" name="education_level" id="" required>
+                                <div class="form-group row my-3">
+                                    <label for=""  class="col-md-4"> Education Level</label>
+                                    <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="education_level" id="" required>
                                         <option value="">Select...</option>
                                         @foreach($userSettingFields[25]->values as $value)
                                             <option>{{ $value->title }}</option>
                                         @endforeach
                                 </select>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row my-3">
                                     <label for=""  class="col-md-4">University</label>
 
-                                    <input class="form-control col-md-8" list="browsers" name="university" id="browser" required>
+                                    <input class="form-control col-md-8" style="width: 80%; margin: 0 auto" list="browsers" name="university" id="browser" required>
                                     <datalist id="browsers">
                                         @foreach($userSettingFields[41]->values as $value)
                                             <option>{{ $value->title }}</option>
@@ -90,19 +89,19 @@ background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
                                     </datalist>
 
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row my-3">
                                     <label for=""  class="col-md-4">Major Subject</label>
-                                    <input type="text" name="major_subject" class="form-control col-md-8"
+                                    <input type="text" name="major_subject" style="width: 80%; margin: 0 auto" class="form-control col-md-8"
                                     placeholder="Major Subject" required id="">
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row my-3">
                                     <label for=""  class="col-md-4">Designation</label>
-                                    <input type="text" name="designation" class="form-control col-md-8"
+                                    <input type="text" name="designation" style="width: 80%; margin: 0 auto" class="form-control col-md-8"
                                     placeholder="Designation..." required id="">
                                 </div>
 
-                                <div class="form-group">
-                                    <input type="submit" value="Save" class="btn btn-primary btn-modern float-right"
+                                <div class="form-group my-3">
+                                    <input type="submit" style="width: 83%; margin: 0 auto; background-color: #E31190;" value="Save" class="btn btn-primary btn-modern float-right"
                                     data-loading-text="Loading...">
 
                                 </div>

@@ -1,4 +1,4 @@
-@extends('user.master.usermaster')
+@extends('master.master')
 @php
     $me=auth()->user();
 @endphp
@@ -62,24 +62,6 @@
                                         </div>
 
                                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     <div class="other_loc_perm">
                                         <div class="form-group row">
                                             <label for="" class="col-md-4">Permanent Division</label>
@@ -150,7 +132,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="submit" value="Save" class="btn btn-primary btn-modern float-right"
+                                        <input type="submit" value="Save" class="btn btn-primary btn-modern"
                             data-loading-text="Loading...">
                                     </div>
                                 </div>

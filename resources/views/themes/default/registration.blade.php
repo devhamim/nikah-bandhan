@@ -1,4 +1,4 @@
-@extends('user.master.usermaster')
+@extends('master.master')
 @php
 
 $me = auth()->user();
@@ -22,137 +22,127 @@ $me = auth()->user();
     </style>
 @endpush
 @section('content')
-    <div style="background-color: #f9ea8f;
-        background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
-        <div class="row text-center">
-            <div class="col-md-12 text-center">
-                <div class="overflow-hidden mb-1">
-                    {{-- <h2 class="font-weight-normal text-7 mb-0">Complete Your Profile </h2> --}}
-                </div>
+<div style="background-color: #f9ea8f; background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);" class="pt-5">
+    <div class="row text-center">
+        <div class="col-md-12 text-center">
+            <div class="overflow-hidden mb-1">
+                {{-- <h2 class="font-weight-normal text-7 mb-0">Complete Your Profile </h2> --}}
+            </div>
 
-                <form action="{{ route('profilePost2', $me->id) }}" role="form" method="POST"
-                    class="needs-validation" enctype="multipart/form-data">
-                    @csrf
-                    <div class="col-md-12 text-center">
-                        <h5>My Basic Informations & Appearance</h5>
+            <form action="{{ route('profilePost2', $me->id) }}" role="form" method="POST" class="needs-validation mt-5 py-5" enctype="multipart/form-data">
+                @csrf
+                <div class="col-md-12 text-center">
+                    <h5>My Basic Informations & Appearance</h5>
 
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-md-5">
-                                <div class="card mb-4">
-                                    <div class="card-body">
-                                        {{-- <div class="form-group row">
-                                            <label for="" class="col-md-4">Name</label>
-                                            <input type="text" class="form-control col-md-8" name="name" id=""
-                                                value="{{ old('name') }}" required>
-                                        </div> --}}
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Created By</label>
-                                            <select name="profile_created_by" id="" class="form-control col-md-8" required>
-                                                <option value="">Select...</option>
-                                                @foreach ($userSettingFields[1]->values as $value)
-                                                    <option value="{{ $value->title }}">
-                                                        {{ $value->title }}</option>
-                                                @endforeach
-                                            </select>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-5">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    {{-- <div class="form-group row">
+                                        <label for="" class="col-md-4">Name</label>
+                                        <input type="text" class="form-control col-md-8" name="name" id=""
+                                            value="{{ old('name') }}" required>
+                                    </div> --}}
+                                    <div class=" row my-3">
+                                        <label for="" class="col-md-4 form-label">Created By</label>
+                                        <select name="profile_created_by" id="" class="form-control col-md-8" style="width: 80%; margin: 0 auto" required>
+                                            <option value="">Select...</option>
+                                            @foreach ($userSettingFields[1]->values as $value)
+                                                <option value="{{ $value->title }}">
+                                                    {{ $value->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    {{-- <div class="form-group row">
+                                        <div class="col-md-4">
+                                            <label for="mobile" class="">Mobile</label>
+                                        </div>
+                                        <div class="col-md-8 p-0">
+                                            <input type="tel" required class="form-control input-mobile " id="input-user-mobile" name="mobile">
+                                            <span class="text-danger msg" ></span>
                                         </div>
 
-                                        {{-- <div class="form-group row">
-                                            <div class="col-md-4">
-                                                <label for="mobile" class="">Mobile</label>
-                                            </div>
-                                            <div class="col-md-8 p-0">
-                                                <input type="tel" required class="form-control input-mobile " id="input-user-mobile" name="mobile">
-                                                <span class="text-danger msg" ></span>
-                                            </div>
+                                    </div> --}}
 
-                                        </div> --}}
+                                    {{-- <div class="form-group">
+                                   <label for="mobile"class="col-form-label">Mobile:</label>
+                                   <input type="tel" required class="form-control input-mobile" id="input-user-mobile" name="mobile">
+                                    </div> --}}
+                                    {{-- <input type="hidden" name="full_mobile" id="hidden"> --}}
 
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4 form-label">Date of birth</label>
+                                        <input type="date" class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="dob" id=""
+                                            value="{{ old('dob') }}" required>
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4 form-label">Gender</label>
+                                        <select class="form-control col-md-8" name="gender" style="width: 80%; margin: 0 auto" id="" required>
+                                            <option value="">Select...</option>
+                                            @foreach ($userSettingFields[0]->values as $value)
+                                                <option value="{{ $value->title }}">
+                                                    {{ $value->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4 form-label">Religion</label>
+                                        <select class="form-control col-md-8 fetch_religion" style="width: 80%; margin: 0 auto" name="religion"
+                                            id="religion" data-url="{{ route('cast.fetch') }}"
+                                            data-dependent="fetch_cast" required>
+                                            <option value="">Select...</option>
+                                            @foreach ($religions as $value)
+                                                <option value="{{ $value->id }}">
+                                                    {{ $value->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4 form-label">Caste</label>
+                                        <select class="form-control col-md-8 fetch_cast" style="width: 80%; margin: 0 auto" name="caste" id="" required>
+                                            <option value="">Select Caste</option>
+                                        </select>
+                                    </div>
 
+                                    <div class="form-group row my-3">
+                                        <label class="col-md-4 form-label">Marital
+                                            Status</label>
+                                        <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="marital_status" id="" required>
 
-
-
-
-
-                                        {{-- <div class="form-group">
-                                       <label for="mobile"class="col-form-label">Mobile:</label>
-                                       <input type="tel" required class="form-control input-mobile" id="input-user-mobile" name="mobile">
-                                        </div> --}}
-                                        {{-- <input type="hidden" name="full_mobile" id="hidden"> --}}
-
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Date of birth</label>
-                                            <input type="date" class="form-control col-md-8" name="dob" id=""
-                                                value="{{ old('dob') }}" required>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Gender</label>
-                                            <select class="form-control col-md-8" name="gender" id="" required>
-                                                <option value="">Select...</option>
-                                                @foreach ($userSettingFields[0]->values as $value)
-                                                    <option value="{{ $value->title }}">
-                                                        {{ $value->title }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Religion</label>
-                                            <select class="form-control col-md-8 fetch_religion" name="religion"
-                                                id="religion" data-url="{{ route('cast.fetch') }}"
-                                                data-dependent="fetch_cast" required>
-                                                <option value="">Select...</option>
-                                                @foreach ($religions as $value)
-                                                    <option value="{{ $value->id }}">
-                                                        {{ $value->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Caste</label>
-                                            <select class="form-control col-md-8 fetch_cast" name="caste" id="" required>
-                                                <option value="">Select Caste</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-md-4">Marital
-                                                Status</label>
-                                            <select class="form-control col-md-8" name="marital_status" id="" required>
-
-                                                <option value="">Select...</option>
-                                                @foreach ($userSettingFields[10]->values as $value)
-                                                    <option>{{ $value->title }}</option>
-                                                @endforeach
+                                            <option value="">Select...</option>
+                                            @foreach ($userSettingFields[10]->values as $value)
+                                                <option>{{ $value->title }}</option>
+                                            @endforeach
 
 
-                                            </select>
+                                        </select>
 
-                                        </div>
+                                    </div>
 
-                                        <div class="form-group">
-                                            <input type="submit" value="Save" class="btn btn-primary btn-modern float-right"
-                                                data-loading-text="Loading...">
-                                        </div>
+                                    <div class="form-group my-3">
+                                        <input type="submit" style="width: 83%; margin: 0 auto; background-color: #E31190;" value="Save" class="btn btn-primary btn-modern float-right"
+                                            data-loading-text="Loading...">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
 
 
-                </form>
-            </div>
+                </div>
 
 
+            </form>
         </div>
 
 
     </div>
+
+
+</div>
 @endsection
 
 @push('js')

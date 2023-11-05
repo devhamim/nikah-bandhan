@@ -8,39 +8,42 @@
 @endpush
 
 @section('content')
-<div class="container">
-    <div class="row my-5 ">
+<!-- ================> Page Header section start here <================== -->
+<div class="pageheader bg_img" style="background-image: url(assets/images/bg-img/pageheader.jpg);">
+    <div class="container">
+        <div class="pageheader__content text-center">
+            <h2>About Our Ollya</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Page</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">About</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- ================> Page Header section end here <================== -->
 
-        <div class="col-12 col-md-3">
-            <div class="card">
-                <div class="image">
-                    <img src="{{ asset('images/v1.jpg') }}" alt="" class="img-fluid">
+
+<!-- ================> About section start here <================== -->
+<div class="about about--style5 padding-top padding-bottom">
+    <div class="container">
+        <div class="row justify-content-center g-4 align-items-center">
+            <div class="col-lg-6 col-12">
+                <div class="about__thumb">
+                    <img src="assets/images/about/01.png" alt="dating thumb">
                 </div>
             </div>
-
-        </div>
-        <div class="col-12 col-md-9">
-            <div class="card" style="border-radius:25px">
-
-                <div class="card-body">
-                    <h3 class="mb-5">The VIP Advantage</h3>
-                    <div class="row">
-                        <div class="col-8">
-
-                         <p class="text-center" style="line-height: 18px"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius nobis facere quae maxime porro esse, veritatis asperiores, deleniti ipsum culpa sapiente perferendis labore consequuntur quam repellat est adipisci, .</p>
-                         <p class="w3-text-sm mt-4"  style="line-height: 18px"><small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius nobis facere quae maxime porro esse, veritatis asperiores, deleniti ipsum culpa sapiente perferendis labore consequuntur quam repellat est adipisci, .</small></p>
-                        </div>
-                        <div class="col-3">
-                            <img src="{{ asset('images/v2.jpeg') }}" class="rounded-circle" alt="" height="220" width="220">
-                        </div>
-                    </div>
-
+            <div class="col-lg-6 col-12">
+                <div class="about__content">
+                    <h2>Hello My Friend</h2>
+                    <h5>We are here to build emotion, connect people and create happy stories.</h5>
+                    <p>Seeko is a friendly dating theme based on BuddyPress for the community functionality. It allows you to easily create and community for dating. You can add your own branding text and images right away.</p>
+                    <a href="membership.html" class="default-btn reverse"><span>Get A Membership</span></a>
                 </div>
             </div>
-
-
         </div>
-
     </div>
 </div>
 @endsection

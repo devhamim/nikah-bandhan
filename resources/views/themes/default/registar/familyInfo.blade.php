@@ -1,4 +1,4 @@
-@extends('user.master.usermaster')
+@extends('master.master')
 @php
     $me=auth()->user();
 @endphp
@@ -21,11 +21,8 @@
             <div class="overflow-hidden mb-1">
             </div>
             <form action="{{ route('familyDetails', $me->id) }}" role="form" method="POST"
-                class="needs-validation" enctype="multipart/form-data">
+                class="needs-validation mt-5 py-5" enctype="multipart/form-data">
                 @csrf
-
-
-
 
                 <div class="col-md-12 text-center">
                     <h5>My Family Details</h5>
@@ -34,11 +31,11 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-5">
                             <div class="card mb-4">
-                                <div class="card-body">
-                                    <div class="form-group row">
+                                <div class="card-body" >
+                                    <div class="form-group row my-3">
                                         <label for="" class="col-md-4">Family
                                             Type</label>
-                                            <select class="form-control col-md-8" name="family_type" id="" required>
+                                            <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="family_type" id="" required>
 
                                                 <option value="">Select...</option>
                                                 @foreach ($userSettingFields[42]->values as $value)
@@ -48,10 +45,10 @@
                                             </select>
                                     </div>
 
-                                    <div class="form-group row">
+                                    <div class="form-group row my-3">
                                         <label for="" class="col-md-4">Family
                                             Status</label>
-                                            <select class="form-control col-md-8" name="family_status" id="" required>
+                                            <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="family_status" id="" required>
 
                                                 <option value="">Select...</option>
                                                 @foreach ($userSettingFields[44]->values as $value)
@@ -62,31 +59,31 @@
 
                                     </div>
 
-                                    <div class="form-group row">
+                                    <div class="form-group row my-3">
                                         <label for="" class="col-md-4">Father
                                             Profession</label>
-                                            <input type="text" name="father_prof"  class="form-control col-md-8">
+                                            <input type="text" name="father_prof" style="width: 80%; margin: 0 auto" class="form-control col-md-8">
                                     </div>
-                                    <div class="form-group row">
+                                    <div class="form-group row my-3">
                                         <label for="" class="col-md-4">Mother
                                             Profession</label>
-                                            <input type="text" name="mother_prof"  class="form-control col-md-8">
+                                            <input type="text" name="mother_prof" style="width: 80%; margin: 0 auto" class="form-control col-md-8">
                                     </div>
-                                    <div class="form-group row">
+                                    <div class="form-group row my-3">
                                         <label for="" class="col-md-4">Number of
                                             Brothers</label>
-                                            <input type="number" name="no_bro"  class="form-control col-md-8">
+                                            <input type="number" name="no_bro" style="width: 80%; margin: 0 auto" class="form-control col-md-8">
 
                                     </div>
 
-                                    <div class="form-group row">
+                                    <div class="form-group row my-3">
                                         <label for="" class="col-md-4">Number of
                                             Sisters</label>
-                                            <input type="number" name="no_sis"  class="form-control col-md-8">
+                                            <input type="number" name="no_sis" style="width: 80%; margin: 0 auto" class="form-control col-md-8">
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="submit" value="Save" class="btn btn-primary btn-modern float-right"
+                                    <div class="form-group my-3">
+                                        <input type="submit" value="Save" style="width: 83%; margin: 0 auto; background-color: #E31190;" class="btn btn-primary btn-modern"
                             data-loading-text="Loading...">
 
                                     </div>
