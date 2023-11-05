@@ -353,8 +353,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
 
 });
 
-
-
 Route::group(['middleware' => ['auth'], 'prefix' => 'auther'], function () {
     Route::get('message/dashboard/{userto?}', [UserController::class, 'messageDashboard'])->name('user.messageDashboard');
 
