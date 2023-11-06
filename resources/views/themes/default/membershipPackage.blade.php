@@ -1,4 +1,4 @@
-@extends('user.master.pageMaster')
+@extends('master.master')
 
 @push('meta')
 

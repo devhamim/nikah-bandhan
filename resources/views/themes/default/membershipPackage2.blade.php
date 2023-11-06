@@ -174,21 +174,28 @@
 
 @endpush
 
-<section class="page-header page-header-modern bg-color-light-scale-1 page-header-sm">
-    <div class="container">
-        <div class="row mr-lg-n5">
-            <div class="col-md-9 order-2 order-md-1 align-self-center p-static">
-                <h1 class="text-danger">Our Packages</h1> 
-            </div>
-            <div class="col-md-3 order-1 order-md-2 align-self-center">
-                <ul class="breadcrumb d-block text-md-end  mr-lg-n5">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li class="active">Our Packages</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+@php
+    if (!function_exists('Percentage_cal')) {
+    function Percentage_cal($value, $total)
+    {
+        if ($total != 0) {
+            return ($value / $total) * 100;
+        } else {
+            return 0;
+        }
+    }
+
+    if (!function_exists('avg_month')) {
+    function avg_month($amount, $duration) {
+        if ($duration != 0) {
+            return $amount / $duration;
+        } else {
+            return 0;
+        }
+    }
+}
+}
+@endphp
 
 <div class="demo"  style="position: relative;">
     <br>
@@ -196,7 +203,7 @@
         <div  class="row m-0 vippackages">
         </div>
 
-        <div class="px-5" style="position: absolute; top:0; z-index: 999; width:100%" >
+        <div class="px-5" style="position: absolute; top:0; z-index: 1; width:100%; margin-top: 50px" >
                 <h2 class="text-lg-10 text-sm-5 text-md-10 pt-5 text-center w3-text-white" style="text-shadow: 1px 1px 2px #000">
                     Our <strong class="w3-text-white">Packages </strong>
                  </h2>
@@ -309,7 +316,7 @@
     <div class="clearfix"></div>
     <br>
 </div>
-
+<div class="empty_section" style="padding: 380px 0"></div>
 <div  class="container-fluied my-5 mt-4">
     <div class="row">
         <div class="col-md-8 offset-md-2  py-4 w3-round">
