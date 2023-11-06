@@ -25,7 +25,7 @@ public function test(){
 }
 public function aboutUs(){
 
-    return view("aboutUs");
+    return view('aboutUs');
 }
 
 public function userLogin(Request $request)

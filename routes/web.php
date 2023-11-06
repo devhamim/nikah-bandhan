@@ -55,14 +55,13 @@ Route::get('packages', [WelcomeController::class, 'packagelist'])->name('package
 Route::get('dashboard', [WelcomeController::class, 'dashboard'])->name('dashboard');
 Route::get('/registration/user', [WelcomeController::class, 'registrationUser'])->name('registration.user');
 Route::get('categories/{id}/{slug?}', [WelcomeController::class, 'categories'])->name('categories');
-Route::get('/imagecache/{template}/{filename}', 'ImageController@getImage')->name('imagecache');
+Route::get('/imagecache/{template}/{filename}', [WelcomeController::class, 'getImage'])->name('imagecache');
 
 Route::group(['prefix' => 'blogs'], function() {
 
     Route::get('/', [WelcomeController::class,'blogs'])->name('blogs.index');
     Route::get('/blog-details', [WelcomeController::class, 'blogDetails']);
     Route::get('/blog-details/{id}/{excerpt?}', [WelcomeController::class, 'blogDetails2'])->name('blogDetails2');
-
 });
 
 

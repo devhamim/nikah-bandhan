@@ -258,7 +258,9 @@
 								<div class="story__thumb">
 									<a href="{{ route('success.stories_details', $post->id) }}">
 										{{-- <img class="card-img-top" src="{{ route('imagecache', ['template' => 'medium', 'filename' => $post->fiName()]) }}" alt="Card Image" /> --}}
+
 										<img class="card-img-top" src="{{ asset('storage/stories') }}/{{ $post->image_name }}" alt="Card Image" />
+										{{-- <img src="{{ asset('storage/stories'.$post->image_name) }}" width="120px" hight="120px" alt=""> --}}
 									</a>
 									
 								</div>

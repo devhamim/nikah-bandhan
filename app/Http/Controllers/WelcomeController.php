@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Session;
 use DB;
 use App\Models\WebsiteParameter;
 use App\Models\WpPost;
+use Image;
 
 class WelcomeController extends Controller
 {
@@ -388,6 +389,14 @@ class WelcomeController extends Controller
     {
         return response()->view('robotTxt')->header('Content-Type', 'text/plain');
     }
+
+    public function getImage($template, $filename)
+{
+    $path = storage_path("app/public/images/{$filename}");
+    return Image::cache(function ($image) use ($path) {
+        return $image->make($path)->response();
+    }, 60, true);
+}
 
 
 }
