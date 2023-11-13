@@ -87,7 +87,6 @@ public function userLogin(Request $request)
 
     // $user->registerSmsSend();
     // dd($user->password_temp);
-
     $details = [
         'title' => "New Registration",
     ];
@@ -199,7 +198,7 @@ public function userLogin(Request $request)
             // dd($districts);
     $thanas = Upazila::orderBy('name')->get();
     // dd($divisions, $districts, $thanas  );
-
+    
     return view('registar.contactInfo', compact('divisions', 'districts', 'thanas'));
   }
 

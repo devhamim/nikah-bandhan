@@ -18,7 +18,7 @@ $me = auth()->user();
         .form-group row {
             margin-bottom: 2px !important;
         }
-
+ 
     </style>
 @endpush
 @section('content')
@@ -28,7 +28,7 @@ $me = auth()->user();
             <div class="overflow-hidden mb-1">
                 {{-- <h2 class="font-weight-normal text-7 mb-0">Complete Your Profile </h2> --}}
             </div>
-
+            
             <form action="{{ route('profilePost2', $me->id) }}" role="form" method="POST" class="needs-validation mt-5 py-5" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-12 text-center">

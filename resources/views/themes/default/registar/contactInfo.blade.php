@@ -27,126 +27,109 @@
             <div class="overflow-hidden mb-1">
             </div>
             <form id="userform" action="{{ route('contactInfo', $me->id) }}" role="form" method="POST"
-                class="needs-validation user-mobile-check-form" enctype="multipart/form-data">
+                class="needs-validation mt-5 py-5" enctype="multipart/form-data">
                 @csrf
+
                 <div class="col-md-12 text-center">
                     <h5>Contact Informaion</h5>
+
 
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-5">
                             <div class="card mb-4">
-                                <div class="card-body">
-                                    <div class="form-group row">
+                                <div class="card-body" >
+                                    <div class="form-group row my-3">
                                         <label for="" class="col-md-4">Permanent Country</label>
-                                        <select class="form-control col-md-8" name="permanent_country" id="permanent_country" required>
+                                            <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="permanent_country" id="permanent_country" required>
 
-                                            <option value="">Select...</option>
-                                            @foreach($userSettingFields[2]->values as $value)
-
-                                                <option value="{{ $value->title }}">
-                                                    {{ $value->title }}</option>
-
-                                        @endforeach
-                                        </select>
-                                    </div>
-
-
-
-                                    <div class="form-group row">
-                                        <div class="col-md-4">
-                                            <label for="mobile" class="">Gradient Mobile</label>
-                                        </div>
-                                        <div class="col-md-8 p-0">
-                                            <input type="tel" required class="form-control input-mobile " id="input-user-mobile" name="gradient_mobile">
-                                            <span class="text-danger msg" ></span>
-                                        </div>
-
-                                    </div>
-                                    <div class="other_loc_perm">
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Permanent Division</label>
-                                            <select class="form-control col-md-8 dynamic load_division" name="parmanent_division" data-url="{{ route('load_district.fetch') }}" data-dependent="load_district" id=""  >
-
-                                                <option value="">Select Division</option>
-                                                            @foreach ($divisions as $division)
-                                                            <option value="{{ $division->id }}">{{ $division->name }}</option>
-                                                            @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for=""class="col-md-4">Permanent District</label>
-                                            <select class="form-control col-md-8 dynamic load_district" name="parmanent_district"  data-url="{{ route('load_thana.fetch') }}" data-dependent="load_thana" id="" >
-
-                                                <option value="">Select District</option>
-                                            </select>
-
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Permanent Thana</label>
-                                            <select class="form-control col-md-8 dynamic load_thana" name="parmanent_thana" id="" >
-
-                                                <option value="">Select Thana</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="" class="col-md-4">Present Country</label>
-                                        <select class="form-control col-md-8" name="present_country" id="present_country" required>
-
-                                            <option value="">Select...</option>
-                                            @foreach($userSettingFields[2]->values as $value)
-                                                <option value="{{ $value->title }}">
-                                                    {{ $value->title }}</option>
-
-                                        @endforeach
-
-                                        </select>
-                                    </div>
-                                    <div class="other_loc">
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Present Division</label>
-                                            <select class="form-control col-md-8 dynamic present_load_division" name="present_division"  data-url="{{ route('load_district.fetch') }}" data-dependent="present_load_district" id="" >
-                                                <option value="">Select Division</option>
-                                                @foreach ($divisions as $division)
-                                                <option value="{{ $division->id }}">{{ $division->name }}</option>
+                                                <option value="">Select...</option>
+                                                @foreach($userSettingFields[2]->values as $value)
+                                                    <option value="{{ $value->title }}">
+                                                        {{ $value->title }}</option>
                                                 @endforeach
 
-
                                             </select>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Present District</label>
-                                            <select class="form-control col-md-8 present_load_district" name="present_district" data-url="{{ route('load_thana.fetch') }}" data-dependent="present_load_thana" id="" >
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="mobile" class="col-md-4">Gradient Mobile</label>
+                                            <input type="tel" required id="input-user-mobile" name="gradient_mobile" style="width: 80%; margin: 0 auto" class="form-control col-md-8">
+                                            <span class="text-danger msg" ></span>
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Permanent Division</label>
+                                            <select class="form-control col-md-8 dynamic load_division" style="width: 80%; margin: 0 auto" name="parmanent_division" data-url="{{ route('load_district.fetch') }}" data-dependent="load_district" id="">
+
+                                            <option value="">Select Division</option>
+                                            @foreach ($divisions as $division)
+                                                <option value="{{ $division->id }}">{{ $division->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Permanent District</label>
+                                            <select class="form-control col-md-8 dynamic load_district" style="width: 80%; margin: 0 auto" name="parmanent_district"  data-url="{{ route('load_thana.fetch') }}" data-dependent="load_thana" id="" >
                                                 <option value="">Select District</option>
                                             </select>
-
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4">Present Thana</label>
-                                            <select class="form-control col-md-8 present_load_thana" name="present_thana" id="" >
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Permanent Thana</label>
+                                            <select class="form-control col-md-8  dynamic load_thana" style="width: 80%; margin: 0 auto" name="parmanent_thana" id="">
                                                 <option value="">Select Thana</option>
                                             </select>
-                                        </div>
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Present Country</label>
+                                            <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="present_country" id="present_country" required>
+                                                <option value="">Select...</option>
+                                                @foreach($userSettingFields[2]->values as $value)
+                                                    <option value="{{ $value->title }}">{{ $value->title }}</option>
+                                                @endforeach
+                                            </select>
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Present Division</label>
+                                            <select class="form-control col-md-8 dynamic present_load_division" style="width: 80%; margin: 0 auto" name="present_division"  data-url="{{ route('load_district.fetch') }}" data-dependent="present_load_district" id="">
+                                                <option value="">Select Division</option>
+                                                @foreach ($divisions as $division)
+                                                    <option value="{{ $division->id }}">{{ $division->name }}</option>
+                                                @endforeach
+                                            </select>
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Present District</label>
+                                            <select class="form-control col-md-8 present_load_district" style="width: 80%; margin: 0 auto" name="present_district" data-url="{{ route('load_thana.fetch') }}" data-dependent="present_load_thana" id="">
+                                                <option value="">Select District</option>
+                                            </select>
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Present Thana</label>
+                                            <select class="form-control col-md-8 present_load_thana" style="width: 80%; margin: 0 auto" name="present_thana" id="">
+                                                <option value="">Select Thana</option>
+                                            </select>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="submit" value="Save" class="btn btn-primary btn-modern"
+                                    <div class="form-group my-3">
+                                        <input type="submit" value="Save" style="width: 83%; margin: 0 auto; background-color: #E31190;" class="btn btn-primary btn-modern"
                             data-loading-text="Loading...">
+
                                     </div>
+
                                 </div>
                             </div>
+
                         </div>
                     </div>
+
+
+
                 </div>
+
             </form>
         </div>
 
 
     </div>
-
-
 </div>
 
 @endsection
@@ -220,17 +203,6 @@
 
     }); // jquery end
 </script>
-
-
-
-
-
-
-
-
-
-
-
 
 <script>
 

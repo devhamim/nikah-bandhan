@@ -18,134 +18,101 @@
 
 
 <div style="background-color: #f9ea8f; background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
-
-
     <div class="row text-center">
-
         <div class="col-md-12 text-center">
             <div class="overflow-hidden mb-1">
-                <h2 class="font-weight-normal text-7 mb-0">Partner Preference!</h2>
             </div>
-
-            <form action="{{ route('pertnerPost') }}" role="form" method="POST" class="needs-validation"
-                enctype="multipart/form-data">
+            <form action="{{ route('pertnerPost') }}" role="form" method="POST" class="needs-validation mt-5 py-5" enctype="multipart/form-data">
                 @csrf
-
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-5">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="form-group text-left">
-                                    <label for="">Age
-                                        (min)</label>
-                                        <select name="age_min" id="" class="form-control" required>
-
-                                            @for($i=18;$i<81;$i++)
-
-                                            <option value="{{$i}}">{{$i}} Year</option>
-                                            @endfor
+                <div class="col-md-12 text-center">
+                    <h5>Partner Preference!</h5>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-5">
+                            <div class="card mb-4">
+                                <div class="card-body" >
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Age (min)</label>
+                                            <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="age_min" id="" required>
+                                                @for($i=18;$i<81;$i++)
+                                                    <option value="{{$i}}">{{$i}} Year</option>
+                                                @endfor
+                                            </select>
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Age (max)</label>
+                                            <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="age_max" id="" required>
+                                                @for($i=18;$i<81;$i++)
+                                                    <option value="{{$i}}">{{$i}} Year</option>
+                                                @endfor
+                                            </select>
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Height (min)</label>
+                                            <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="height_min" id="">
+                                                <option value="">Select...</option>
+                                                @foreach($userSettingFields[14]->values as $value)
+                                                    <option value="{{ $value->title }}">{{ $value->title }}</option>
+                                                @endforeach
                                         </select>
-                                </div>
-
-                                <div class="form-group text-left">
-                                    <label for="">Age
-                                        (max)</label>
-
-                                        <select name="age_max" id="" class="form-control" required>
-
-                                            @for($i=18;$i<81;$i++)
-
-                                            <option value="{{$i}}">{{$i}} Year</option>
-                                            @endfor
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Height (max)</label>
+                                            <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="height_max" id="">
+                                                <option value="">Select...</option>
+                                                @foreach($userSettingFields[14]->values as $value)
+                                                    <option value="{{ $value->title }}">{{ $value->title }}</option>
+                                                @endforeach
                                         </select>
-                                </div>
+                                    </div>
 
-                                <div class="form-group text-left">
-                                    <label for="">Height
-                                        (min)</label>
-                                        <select class="form-control" name="height_min" id="" required>
+                                    <div class="form-group row my-3">
+                                        <label for="" class="col-md-4">Community</label>
+                                            <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="religion" id="" required >
+                                                <option value="">Select...</option>
+                                                @foreach($religions as $value)
+                                                    <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                                @endforeach
+                                            </select>
+                                    </div>
+                                    <div class="form-group row my-3 multisele">
+                                        <label for="" class="col-md-4">Education</label>
+                                        <select class="form-control select2" style="width: 80%; margin: 0 auto" name="study[]" id="" required multiple>
                                             <option value="">Select...</option>
-                                            @foreach($userSettingFields[14]->values as $value)
-                                                <option value="{{ $value->title }}">
-                                                    {{ $value->title }}</option>
-
+                                            @foreach($userSettingFields[25]->values as $value)
+                                                <option>{{ $value->title }}</option>
                                             @endforeach
                                         </select>
-                                </div>
-
-                                <div class="form-group text-left">
-                                    <label for="">Height
-                                        (max)</label>
-                                        <select class="form-control" name="height_max" id="" required>
-                                            <option value="">Select...</option>
-                                            @foreach($userSettingFields[14]->values as $value)
-                                                <option value="{{ $value->title }}">
-                                                    {{ $value->title }}</option>
-
-                                            @endforeach
-                                        </select>
-
-                                </div>
-
-                                <div class="form-group text-left">
-                                    <label for="">Community</label>
-                                    <select class="form-control" name="religion" id="" required>
-                                        <option value="">Select...</option>
-                                        @foreach($religions as $value)
-                                        <option value="{{ $value->id }}">
-                                            {{ $value->name }}</option>
-                                    @endforeach
-                                    </select>
-
-                                </div>
-
-                                <div class="form-group text-left">
-                                    <label for="">Education</label>
-                                    <select class="form-control select2" name="study[]" id="" required multiple>
-
-
-
-                                        <option value="">Select...</option>
-
-                                        @foreach($userSettingFields[25]->values as $value)
-                                            <option>{{ $value->title }}</option>
-                                        @endforeach
-                                </select>
-                                </div>
-
-                                <div class="form-group text-left">
-                                    <label for="">Profession</label>
-                                    <select class="form-control select2" name="profession[]" id="" required multiple>
-
-                                        <option value="">Select...</option>
-
-                                        @foreach($userSettingFields[26]->values as $value)
-                                        <option>{{ $value->title }}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="form-group text-left">
-                                    <input type="submit" value="Save" class="btn btn-primary btn-modern float-right"
+                                    </div>
+                                    <div class="form-group row my-3 multisele">
+                                        <label for="" class="col-md-4">Profession</label>
+                                            <select class="form-control select2" style="width: 80%; margin: 0 auto" name="profession[]" id="" required multiple>
+                                                <option value="">Select...</option>
+                                                @foreach($userSettingFields[26]->values as $value)
+                                                    <option>{{ $value->title }}</option>
+                                                @endforeach
+                                            </select>
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <input type="submit" value="Save" style="width: 83%; margin: 0 auto; background-color: #E31190;" class="btn btn-primary btn-modern"
                             data-loading-text="Loading...">
+
+                                    </div>
+
                                 </div>
-
-
-
                             </div>
+
                         </div>
                     </div>
 
-                </div>
 
+
+                </div>
 
             </form>
         </div>
 
 
     </div>
-
-
 </div>
 
 @endsection

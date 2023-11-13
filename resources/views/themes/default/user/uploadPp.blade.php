@@ -132,57 +132,53 @@ body {
 <div style="background-color: #f9ea8f; background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
 
 
+
+
+
     <div class="row text-center">
+      <div class="col-md-12 text-center">
+          <div class="overflow-hidden mb-1">
+          </div>
+          <form action="{{ route('uploadPp', $me->id) }}" role="form" method="POST"
+            class="needs-validation" enctype="multipart/form-data">
+            @csrf
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-5">
+                  <h5>UPLOAD YOUR PROFILE IMAGE</h5>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="file-upload">
+                                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
 
-        <div class="col-md-12 text-center">
-            <div class="overflow-hidden mb-1">
-                <h2 class="font-weight-normal text-7 mb-0">UPLOAD YOUR PROFILE IMAGE</h2>
-            </div>
-            <form action="{{ route('uploadPp', $me->id) }}" role="form" method="POST"
-                class="needs-validation" enctype="multipart/form-data">
-                @csrf
+                                <div class="image-upload-wrap">
+                                <input class="file-upload-input" type='file' name="profile_img" onchange="readURL(this);" accept="image/*" />
+                                <div class="drag-text">
+                                    <h3>Drag and drop a file or select add Image</h3>
+                                </div>
+                                </div>
+                                <div class="file-upload-content">
+                                <img class="file-upload-image" src="#" alt="your image" />
+                                <div class="image-title-wrap">
+                                    <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                </div>
+                                </div>
+                            </div>
 
-
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-5">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="file-upload">
-                                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-
-                                    <div class="image-upload-wrap">
-                                    <input class="file-upload-input" type='file' name="profile_img" onchange="readURL(this);" accept="image/*" />
-                                    <div class="drag-text">
-                                        <h3>Drag and drop a file or select add Image</h3>
-                                    </div>
-                                    </div>
-                                    <div class="file-upload-content">
-                                    <img class="file-upload-image" src="#" alt="your image" />
-                                    <div class="image-title-wrap">
-                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-                                    </div>
+                                <div class="form-group row">
+                                    <div class="form-group col-lg-12 text-center">
+                                        <input type="submit" value="Save" class="btn btn-primary btn-modern text-center" style="width: 83%; margin: 0 auto; background-color: #E31190;" data-loading-text="Loading...">
                                     </div>
                                 </div>
-
-                                    <div class="form-group row">
-                                        <div class="form-group col-lg-12 text-center">
-
-
-                                            <input type="submit" value="Save" class="btn btn-primary btn-modern text-center"
-                                                data-loading-text="Loading...">
-                                        </div>
-                                    </div>
-                            </div>
                         </div>
-
                     </div>
+
                 </div>
-            </form>
-        </div>
-    </div>
+            </div>
+        </form>
+      </div>
 
 
-
+  </div>
 </div>
 
 

@@ -42,7 +42,7 @@
                     <div class="navbar-nav mainmenu">
                         <ul>
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ route("/aboutUs") }}">About Us</a></li>
+                            <li><a href="{{ route("aboutUs") }}">About Us</a></li>
                             <li><a href="{{url('/packages')}}">Premium Plan</a></li>
                             <li><a href="{{ route('page',"contact-us") }}">Contect Us</a></li>
                         </ul>
