@@ -62,7 +62,7 @@
                         </div>
                         <div class="contact-content">
                             <h6 class="title">Phone number</h6>
-                            <p>+22698 745 632,02 982 745</p>
+                            <p>01751-216771</p>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="contact-content">
                             <h6 class="title">Send Email</h6>
-                            <p>youremail@gmil.com</p>
+                            <p>nikahbandhan.ceo@gmail.com</p>
                         </div>
                     </div>
                 </div>

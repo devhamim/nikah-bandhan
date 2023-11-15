@@ -353,7 +353,8 @@
                     <div class="col-lg-4">
                         <div class="content d-flex justify-content-center">
                             <div class="icon w3-rounded mx-2 w3-red w3-circle">
-                                <i class="fa fa-user" style="font-size: 30px;"></i>
+                                {{-- <i class="fa fa-user" style="font-size: 30px;"></i> --}}
+                                <img src="{{ asset('images/varifay-icon.png') }}" alt="">
                             </div>
                             <div class="content-text ">
                                 <h4 class="" style="color:#F15C62 !important" >Verified Profiles<h4>
