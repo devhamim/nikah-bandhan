@@ -183,8 +183,10 @@ public function userLogin(Request $request)
   public function socialCulture ()
   {
     //   dd('ok');
-
-    return view('registar.socialCulture');
+    $userSettingFields = UserSettingField::all();
+    return view('registar.socialCulture',[
+      'userSettingFields'=>$userSettingFields
+    ]);
   }
 
   public function familyInfo()
@@ -198,27 +200,31 @@ public function userLogin(Request $request)
 
   public function contactInfo()
   {
+    $userSettingFields = UserSettingField::all();
     $divisions = Division::orderBy('name')->get();
     $districts = District::orderBy('name')->get();
             // dd($districts);
     $thanas = Upazila::orderBy('name')->get();
     // dd($divisions, $districts, $thanas  );
     
-    return view('registar.contactInfo', compact('divisions', 'districts', 'thanas'));
+    return view('registar.contactInfo', compact('divisions', 'districts', 'thanas','userSettingFields'));
   }
 
   public function lifestyleInfo()
   {
     //   dd('ok');
-
-    return view('registar.lifestyleInfo');
+    $userSettingFields = UserSettingField::all();
+    return view('registar.lifestyleInfo',[
+      'userSettingFields'=>$userSettingFields,
+    ]);
   }
 
 
 
   public function pertnerForm()
   {
+    $userSettingFields = UserSettingField::all();
     $religions=Religion::get();
-    return view('pertnerForm', compact('religions'));
+    return view('pertnerForm', compact('religions','userSettingFields'));
   }
 }
