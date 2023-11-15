@@ -113,9 +113,9 @@ $me = auth()->user();
                                         <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="marital_status" id="" required>
 
                                             <option value="">Select...</option>
-                                            @foreach ($userSettingFields[10]->values as $value)
+                                            {{-- @foreach ($userSettingFields[10]->values as $value)
                                                 <option>{{ $value->title }}</option>
-                                            @endforeach
+                                            @endforeach --}}
 
 
                                         </select>
