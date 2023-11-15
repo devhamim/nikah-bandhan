@@ -65,7 +65,7 @@
     <!-- ================> Footer section start here <================== -->
 	
 
-	<div class="side_button">
+	<div class="side_button" style="z-index: 99999">
 		<a class="btn btn-success py-3 px-1 rounded fa-beat" style="background-color: #E31190;" href="{{ url('register') }}"><p><i class="fa-solid fa-user-tie fa-beat"></i></p> Register</a>
 	</div>
     <!-- ================> Footer section end here <================== -->

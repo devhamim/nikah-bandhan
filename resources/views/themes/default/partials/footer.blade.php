@@ -52,8 +52,8 @@
 			
 			
 			
-										<a class="m-0 text-color-light text-white" href="https://wa.me/+8801767506668">+8801767-506668 (Whatsapp)</a> <br>
-										<a class="m-0 text-color-light text-white" href="https://wa.me/+8801927157200">+8801927-157200 (Whatsapp)</a> <br>
+										<a class="m-0 text-color-light text-white" href="https://wa.me/+8801751216771">+8801751216771 (Whatsapp)</a> <br>
+										{{-- <a class="m-0 text-color-light text-white" href="https://wa.me/+8801751216771">+8801751216771 (Whatsapp)</a> <br> --}}
 			
 			
 										</ul>

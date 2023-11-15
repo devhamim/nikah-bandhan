@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav mainmenu">
                         <ul>
-                            <li><a href="tel:+880176750668"><span><i class="fa-solid fa-phone-volume fa-shake"></i> </span> +880176750668</a></li>
+                            <li><a href="tel:+8801751216771"><span><i class="fa-solid fa-phone-volume fa-shake"></i> </span> +8801751-216771</a></li>
                             <li>
                                 <button type="button" class="btn btn-danger text-white"  style="background-color: #E31190;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Login

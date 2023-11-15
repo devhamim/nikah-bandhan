@@ -230,7 +230,7 @@ margin-top:-90px;
 @auth
 <?php $me = Auth::user(); ?>
 @endauth
-@include('welcome.parts.page')
+    @include('welcome.parts.page')
 @endsection
 
 @push('js')

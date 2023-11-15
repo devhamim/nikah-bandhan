@@ -120,17 +120,17 @@
     background: linear-gradient(to top,#14207f 15px, #060F5E 15px);
 }
 .pricingTable.green .pricingTable-header{
-    background: linear-gradient(to bottom,#25b26e 15px, #00934D 15px);
+    background: linear-gradient(to bottom,#25b26e 15px, #E31190 15px);
 }
 .pricingTable.green .price-value{
     background-color: #25b26e;
-    border-color: #00934D;
+    border-color: #E31190;
 }
 .pricingTable.green .price-value:after{ background-color: #25b26e; }
-.pricingTable.green .content-list li{ border-bottom-color: #00934D; }
-.pricingTable.green .content-list li:before{ color: #00934D; }
+.pricingTable.green .content-list li{ border-bottom-color: #E31190; }
+.pricingTable.green .content-list li:before{ color: #E31190; }
 .pricingTable.green .pricingTable-signup{
-    background: linear-gradient(to top,#017c41 15px, #00934D 15px);
+    background: linear-gradient(to top,#017c41 15px, #E31190 15px);
 }
 .trapezoid {
 	border-bottom: 20px solid rgb(100, 102, 100);
@@ -156,7 +156,7 @@
  .vippackages{
     min-height: 2800px;
     clip-path: polygon(0 0, 100% 0%, 100% 38%, 0 52%);
-    background-color:#00934D;
+    background-color:#E31190;
     z-index:998;
     width:100%;
  }
@@ -207,7 +207,7 @@
                 <h2 class="text-lg-10 text-sm-5 text-md-10 pt-5 text-center w3-text-white" style="text-shadow: 1px 1px 2px #000">
                     Our <strong class="w3-text-white">Packages </strong>
                  </h2>
-                 <div class="col-md-4 offset-md-4" style="clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%); background-color:#78ecb6;height:30px;">
+                 <div class="col-md-4 offset-md-4 text-white" style="clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%); background-color:#E31190;height:30px;">
                     <p class="px-2 text-center w3-text-teal "><i> {{ $package_sogan}}</i>
                         <i class="fa fa-solid fa-fire" style="color:red"></i></p>
                 </div>
@@ -253,7 +253,7 @@
                                 </div>
 
                                 @if(round($package->bonus_duration/7,1) >= 1)
-                                <div class="" style="clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%); background-color:#78ecb6;height:30px;">
+                                <div class="text-white" style="clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%); background-color:#E31190;height:30px;">
                                     <p class="px-2 text-center w3-text-teal "><i>{{ round($package->bonus_duration/7,1)}} extra week for Free</i>
                                         <i class="fa fa-solid fa-fire" style="color:red"></i></p>
                                 </div>
@@ -283,8 +283,8 @@
                             </div>
                             </div>
                             <div class="content-list  text-justify mt-3 p-3">
-                                <p> <i class="fa fa-check-circle" style="color: #00934D"></i> {{ $package->proposal_send_daily_limit }}Proposals/Day</p>
-                                <p> <i class="fa fa-check-circle" style="color: #00934D"></i> {{ $package->proposal_send_total_limit }} Total Proposals</p>
+                                <p> <i class="fa fa-check-circle" style="color: #E31190"></i> {{ $package->proposal_send_daily_limit }}Proposals/Day</p>
+                                <p> <i class="fa fa-check-circle" style="color: #E31190"></i> {{ $package->proposal_send_total_limit }} Total Proposals</p>
 
                                 @php
                                 $tags=json_decode($package->package_tags);
@@ -292,16 +292,14 @@
                                 @endphp
                                 @if($tags)
                                     @foreach ($tags as $tag)
-                                    <p> <i class="fa fa-check-circle" style="color: #00934D"></i> {{ $tag }}</p>
+                                    <p> <i class="fa fa-check-circle" style="color: #E31190"></i> {{ $tag }}</p>
                                     @endforeach
                                 @endif
                             </div>
 
                         </div>
                     </div>
-
                     </div>
-
                 @php
                     $pc--;
                 @endphp
@@ -329,41 +327,41 @@
                 <h3>Match Guarantee!</h3>
                 <p>vip matchmaking service</p>
             </div>
-            <div class="G-feature d-flex justify-content-between mt-3 p-2">
-
-                    <div class="content d-flex justify-content-center">
-                        <div class="icon w3-rounded p-2 m-3 w3-red w3-circle w-100">
-                            <i class="fa fa-book" style="font-size: 30px"></i>
-                        </div>
-                        <div class="content-text mt-2">
-                            <h4 class="" style="color:#F15C62 !important">Best<h4>
-                            <h4 class="" style="color:#F15C62 !important">Matches</h4>
+            <div class="">
+                <div class="row text-center mt-5">
+                    <div class="col-lg-4">
+                        <div class="content d-flex justify-content-center">
+                            <div class="icon w3-rounded mx-2 w3-red w3-circle ">
+                                <i class="fa fa-book" style="font-size: 30px"></i>
+                            </div>
+                            <div class="content-text">
+                                <h4 class="" style="color:#F15C62 !important">Best Matches<h4>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="content d-flex justify-content-center">
-                        <div class="icon w3-rounded p-2 m-3 w3-red w3-circle w-100">
-                            <i class="fa fa-user-secret" style="font-size: 30px"></i>
+                    <div class="col-lg-4">
+                        <div class="content d-flex justify-content-center ">
+                            <div class="icon w3-rounded  mx-2 w3-red w3-circle">
+                                <i class="fa fa-user-secret" style="font-size: 30px"></i>
+                            </div>
+                            <div class="content-text ">
+                                <h4 class=""style="color:#F15C62 !important" >100% Privacy<h4>
+                            </div>
+    
                         </div>
-                        <div class="content-text mt-2">
-                            <h4 class=""style="color:#F15C62 !important" >100%<h4>
-                            <h4 class="" style="color:#F15C62 !important">Privacy</h4>
-                        </div>
-
                     </div>
-                    <div class="content d-flex justify-content-center">
-                        <div class="icon w3-rounded p-2 m-3 w3-red w3-circle w-100">
-                            <i class="fa fa-user" style="font-size: 30px; color:white !important"></i>
+                    <div class="col-lg-4">
+                        <div class="content d-flex justify-content-center">
+                            <div class="icon w3-rounded mx-2 w3-red w3-circle">
+                                <i class="fa fa-user" style="font-size: 30px;"></i>
+                            </div>
+                            <div class="content-text ">
+                                <h4 class="" style="color:#F15C62 !important" >Verified Profiles<h4>
+                            </div>
+    
                         </div>
-                        <div class="content-text mt-2">
-                            <h4 class="" style="color:#F15C62 !important" >Verified<h4>
-                            <h4 class="" style="color:#F15C62 !important">Profiles</h4>
-                        </div>
-
                     </div>
-
-
-
+                </div>
             </div>
 
         </div>
