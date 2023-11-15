@@ -47,10 +47,10 @@ $me = auth()->user();
                                         <label for="" class="col-md-4 form-label">Created By</label>
                                         <select name="profile_created_by" id="" class="form-control col-md-8" style="width: 80%; margin: 0 auto" required>
                                             <option value="">Select...</option>
-                                            {{-- @foreach ($userSettingFields[1]->values as $value)
+                                            @foreach ($userSettingFields[1]->values as $value)
                                                 <option value="{{ $value->title }}">
                                                     {{ $value->title }}</option>
-                                            @endforeach --}}
+                                            @endforeach
                                         </select>
                                     </div>
 
@@ -80,10 +80,10 @@ $me = auth()->user();
                                         <label for="" class="col-md-4 form-label">Gender</label>
                                         <select class="form-control col-md-8" name="gender" style="width: 80%; margin: 0 auto" id="" required>
                                             <option value="">Select...</option>
-                                            {{-- @foreach ($userSettingFields[0]->values as $value)
+                                            @foreach ($userSettingFields[0]->values as $value)
                                                 <option value="{{ $value->title }}">
                                                     {{ $value->title }}</option>
-                                            @endforeach --}}
+                                            @endforeach
                                         </select>
                                     </div>
 
@@ -113,9 +113,9 @@ $me = auth()->user();
                                         <select class="form-control col-md-8" style="width: 80%; margin: 0 auto" name="marital_status" id="" required>
 
                                             <option value="">Select...</option>
-                                            {{-- @foreach ($userSettingFields[10]->values as $value)
+                                            @foreach ($userSettingFields[10]->values as $value)
                                                 <option>{{ $value->title }}</option>
-                                            @endforeach --}}
+                                            @endforeach
 
 
                                         </select>
