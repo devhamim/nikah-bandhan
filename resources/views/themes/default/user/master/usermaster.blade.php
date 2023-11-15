@@ -300,7 +300,7 @@
 		ga('send', 'pageview')
 	</script>
 
-{{-- <script>
+<script>
     function getIp(callback) {
         var ip = $(".ip").val();
         // var ip = '72.229.28.185';
@@ -348,7 +348,7 @@
         $(".mobile_country").val(phoneInput.getSelectedCountryData().iso2);
         $(".calling_code").val(phoneInput.getSelectedCountryData().dialCode);
     });
-</script> --}}
+</script>
   <!-- Select2 -->
   <script src="{{asset('alt3/plugins/select2/js/select2.full.min.js')}}"></script>
   <!-- Bootstrap4 Duallistbox -->
@@ -376,7 +376,7 @@
     
     
 </script>
-{{-- <script>
+<script>
   $(function () {
     //Initialize Select2 Elements
     // $('.select2').select2()
@@ -509,7 +509,7 @@
     myDropzone.removeAllFiles(true)
   }
   // DropzoneJS Demo Code End
-
-	// <script src="../../../../www.google-analytics.com/analytics.js" async></script>
-</body> --}}
+</script>
+  <script src="../../../../www.google-analytics.com/analytics.js" async></script>
+</body>
 </html>
