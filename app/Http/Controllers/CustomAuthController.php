@@ -9,6 +9,7 @@ use App\Mail\RegMail;
 use App\Models\District;
 use App\Models\Division;
 use App\Models\Religion;
+// use App\Models\UserSettingItem;
 // use App\Models\Cast;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Upazila;
@@ -166,7 +167,7 @@ public function userLogin(Request $request)
   {
     $religions=Religion::get();
     // dd($religions);
-
+    // $userSettingFields = UserSettingItem::all();
     return view('registration', compact('religions'));
   }
   public function physicalAttribute()
