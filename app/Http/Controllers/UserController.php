@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\UserProposal;
 use App\Models\Gallery;
 use Illuminate\Support\Facades\Crypt;
+use App\Models\UserSettingField;
 use App\Models\Religion;
 use GuzzleHttp\Client;
 // use App\Models\Cast;
@@ -1545,8 +1546,9 @@ $me=auth()->user();
         $permanent_thanas=Upazila::where('district_id', $user->parmanent_district)->get();
         $present_districts=District::where('division_id', $user->present_division)->get();
         $present_thanas=Upazila::where('district_id', $user->present_district)->get();
+        $userSettingFields = UserSettingField::all();
         // dd($user->permanent_district, );
-        return view('user.updateProfile2', compact('user','religions', 'casts', 'divisions', 'permanent_districts', 'permanent_thanas', 'present_districts', 'present_thanas'));
+        return view('user.updateProfile2', compact('user','religions', 'casts', 'divisions', 'permanent_districts', 'permanent_thanas', 'present_districts', 'present_thanas','userSettingFields'));
     }
 
     public function profile(Request $request)
@@ -1811,8 +1813,9 @@ $me=auth()->user();
             Auth::logout();
             return Redirect('/')->with('error', "Your account has suspanded");
         }
+        $userSettingFields = UserSettingField::all();
         $user = User::where('id', auth()->user()->id)->first();
-        return view('user.updateProfile', compact('user'));
+        return view('user.updateProfile', compact('user','userSettingFields'));
     }
 
     public function updatePreference()
