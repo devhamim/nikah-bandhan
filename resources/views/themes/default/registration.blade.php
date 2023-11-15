@@ -1,4 +1,4 @@
-@extends('master.master')
+@extends('user.master.usermaster')
 @php
 
 $me = auth()->user();

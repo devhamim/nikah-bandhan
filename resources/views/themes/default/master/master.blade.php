@@ -254,7 +254,7 @@
 	<script src="{{ asset('frontend') }}/js/swiper.min.js"></script>
 	<!-- <script src="assets/js/all.min.js"></script> -->
 	<script src="{{ asset('frontend') }}/js/wow.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    {{-- <script src="sweetalert2.all.min.js"></script> --}}
 	<script src="{{ asset('frontend') }}/js/lightcase.js"></script>
 	<script src="{{ asset('frontend') }}/js/jquery.countdown.min.js"></script>
 	<script src="{{ asset('frontend') }}/js/waypoints.min.js"></script>
