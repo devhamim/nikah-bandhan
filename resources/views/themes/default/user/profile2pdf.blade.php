@@ -334,9 +334,7 @@ $me = auth()->user();
                     </div>
 
                     {{-- @if ($profile->id != auth()->user()->id || $me->isAdmin()) --}}
-                    @if (auth()->user()->isValidate() ||
-    $me->isAdmin() ||
-    $profile->id == $me->id)
+                    @if (auth()->user()->isValidate() || $me->isAdmin() || $profile->id == $me->id)
                         <div class="row bg-white py-1">
                             <div class="col-md-12">
                                 <h6 class="text-dark font-weight-bold"> My Basic Informations & Appearance</h6>

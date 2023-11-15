@@ -1062,6 +1062,7 @@ ul li {
   top: 50%;
   right: 0;
   background-color: #E31190;
+  border: none;
   
 }
 @media (min-width: 992px) {

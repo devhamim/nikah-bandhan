@@ -1593,13 +1593,6 @@ $me=auth()->user();
         //     return redirect('/user/lifestyle/info');
         // }
 
-
-
-
-
-
-
-
         if($user->hasrole("Admin"))
         {
 
@@ -1735,13 +1728,6 @@ $me=auth()->user();
         }
         return back();
     }
-
-
-
-
-
-
-
 
     public function sendProposalPost(Request $request, User $user)
     {

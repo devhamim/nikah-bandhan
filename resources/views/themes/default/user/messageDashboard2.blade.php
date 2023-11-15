@@ -16,14 +16,14 @@
 </head>
 <body class="hold-transition sidebar-mini">
 
-    <div class="container py-4" >
-        <div class="row">
+    <div class="container py-5" >
+        <div class="row mt-5 pt-5">
             <div class="col-lg-3">
                <div class="bg-white">
                 @include('user.parts.leftsidebar')
                </div>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-9 ">
                 <div class="wrapper d-fled">
                     <div class="container bg-white">
                       <!-- /.row -->

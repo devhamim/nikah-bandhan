@@ -16,13 +16,13 @@ $me=auth()->user();
 @section('content')
 
 <div class="container"  >
-    <div class="row">
-        <div class="col-lg-3">
+    <div class="row  pt-5">
+        <div class="col-lg-3 my-5">
 
             @include('user.parts.leftsidebar')
 
         </div>
-        <div class="col-md-9" style="background-color: ">
+        <div class="col-md-9 mt-5" style="background-color: ">
             @include('alerts.alerts')
             @if ($me->email_verified==null)
             <div class="alert alert-warning">
@@ -75,11 +75,11 @@ $me=auth()->user();
                                 <div>
                                     @if (auth()->user()->isMyFavourite($user))
 
-                                    <a class="btn btn-rounded card-text py-2" style="border: 1px solid red" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="icon-heart icons text-danger font-weight-bold"></i> </a> <br>
+                                    <a class="btn btn-rounded card-text py-2" style="border: 1px solid red" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="fa-solid fa-heart p-0 m-0 text-danger"></i> </a> <br>
                                     <span style="white-space:nowrap; font-size:9px"> Unfavourite</span>
 
                                     @else
-                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="icon-heart icons"></i> </a> <br>
+                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="fa-solid fa-heart p-0 m-0"></i> </a> <br>
                                     <span style="white-space:nowrap; font-size:9px">Favourite</span>
                                     @endif
 
@@ -111,7 +111,7 @@ $me=auth()->user();
 
                                     @else
                                     {{-- {{dd($me->isValidate())}} --}}
-                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? ""  : url('/packages')}}" data-toggle={{$me->isValidate() ? "modal" : ""}} data-target="#feature_largeModal{{$user->id}}"> <i class="icon-cursor icons"></i></a> <br>
+                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? ""  : url('/packages')}}" data-toggle={{$me->isValidate() ? "modal" : ""}} data-target="#feature_largeModal{{$user->id}}"> <i class="fa-regular fa-paper-plane"></i></a> <br>
                                     <span style="white-space:nowrap; font-size:9px"> Send
                                         Proposal</span>
 
@@ -365,8 +365,7 @@ $me=auth()->user();
 
                                             <div class="text-right">
                                                 <button type="submit" class="bg-white text-right"
-                                                    style="border: none; margin:0px; padding:0px;"><i
-                                                        class="icon-cursor icons btn btn-danger"></i> Send Proposal</button>
+                                                    style="border: none; margin:0px; padding:0px;"><i class="fa-regular fa-paper-plane btn btn-danger"></i> Send Proposal</button>
                                             </div>
                                         </form>
                                     </div>
@@ -429,11 +428,11 @@ $me=auth()->user();
                                 <div>
                                     @if (auth()->user()->isMyFavourite($user))
 
-                                    <a class="btn btn-rounded card-text py-2" style="border: 1px solid red" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="icon-heart icons text-danger font-weight-bold"></i> </a> <br>
+                                    <a class="btn btn-rounded card-text py-2" style="border: 1px solid red" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="fa-solid fa-heart p-0 m-0"></i> </a> <br>
                                     <span style="white-space:nowrap; font-size:9px"> Unfavourite</span>
 
                                     @else
-                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="icon-heart icons"></i> </a> <br>
+                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="fa-solid fa-heart p-0 m-0 text-danger"></i> </a> <br>
                                     <span style="white-space:nowrap; font-size:9px">Favourite</span>
                                     @endif
 
@@ -464,7 +463,7 @@ $me=auth()->user();
                                     <span style="white-space:nowrap; font-size:9px">Chat</span>
 
                                     @else
-                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? ""  : url('/packages')}}" data-toggle={{$me->isValidate() ? "modal" : ""}} data-target="#vis_largeModal{{$user->id}}"> <i class="icon-cursor icons"></i></a> <br>
+                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? ""  : url('/packages')}}" data-toggle={{$me->isValidate() ? "modal" : ""}} data-target="#vis_largeModal{{$user->id}}"> <i class="fa-regular fa-paper-plane"></i></a> <br>
                                     <span style="white-space:nowrap; font-size:9px"> Send
                                         Proposal</span>
 
@@ -719,8 +718,7 @@ $me=auth()->user();
 
                                                 <div class="text-right">
                                                     <button type="submit" class="bg-white text-right"
-                                                        style="border: none; margin:0px; padding:0px;"><i
-                                                            class="icon-cursor icons btn btn-danger"></i> Send Proposal</button>
+                                                        style="border: none; margin:0px; padding:0px;"><i class="fa-regular fa-paper-plane btn btn-danger"></i> Send Proposal</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -782,11 +780,11 @@ $me=auth()->user();
                                 <div>
                                     @if (auth()->user()->isMyFavourite($user))
 
-                                    <a class="btn btn-rounded card-text py-2" style="border: 1px solid red" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="icon-heart icons text-danger font-weight-bold"></i> </a> <br>
+                                    <a class="btn btn-rounded card-text py-2" style="border: 1px solid red" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="fa-solid fa-heart p-0 m-0"></i> </a> <br>
                                     <span style="white-space:nowrap; font-size:9px"> Unfavourite</span>
 
                                     @else
-                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="icon-heart icons"></i> </a> <br>
+                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="fa-solid fa-heart p-0 m-0 text-danger"></i> </a> <br>
                                     <span style="white-space:nowrap; font-size:9px">Favourite</span>
                                     @endif
 
@@ -817,7 +815,7 @@ $me=auth()->user();
                                     <span style="white-space:nowrap; font-size:9px">Chat</span>
 
                                     @else
-                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? ""  : url('/packages')}}" data-toggle={{$me->isValidate() ? "modal" : ""}} data-target="#fav_largeModal{{$user->id}}"> <i class="icon-cursor icons"></i></a> <br>
+                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? ""  : url('/packages')}}" data-toggle={{$me->isValidate() ? "modal" : ""}} data-target="#fav_largeModal{{$user->id}}"> <i class="fa-regular fa-paper-plane"></i></a> <br>
                                     <span style="white-space:nowrap; font-size:9px"> Send
                                         Proposal</span>
 
@@ -1069,8 +1067,7 @@ $me=auth()->user();
 
                                             <div class="text-right">
                                                 <button type="submit" class="bg-white text-right"
-                                                    style="border: none; margin:0px; padding:0px;"><i
-                                                        class="icon-cursor icons btn btn-danger"></i> Send Proposal</button>
+                                                    style="border: none; margin:0px; padding:0px;"><i class="fa-regular fa-paper-plane btn btn-danger"></i> Send Proposal</button>
                                             </div>
                                         </form>
                                     </div>
@@ -1133,11 +1130,11 @@ $me=auth()->user();
                                 <div>
                                     @if (auth()->user()->isMyFavourite($user))
 
-                                    <a class="btn btn-rounded card-text py-2" style="border: 1px solid red" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="icon-heart icons text-danger font-weight-bold"></i> </a> <br>
+                                    <a class="btn btn-rounded card-text py-2" style="border: 1px solid red" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="fa-solid fa-heart p-0 m-0"></i> </a> <br>
                                     <span style="white-space:nowrap; font-size:9px"> Unfavourite</span>
 
                                     @else
-                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="icon-heart icons"></i> </a> <br>
+                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? route('user.removeFavourite', $user)  : url('/packages')}}"> <i class="fa-solid fa-heart p-0 m-0 text-danger"></i> </a> <br>
                                     <span style="white-space:nowrap; font-size:9px">Favourite</span>
                                     @endif
 
@@ -1169,7 +1166,7 @@ $me=auth()->user();
                                      </span>
 
                                     @else
-                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? ""  : url('/packages')}}" data-toggle={{$me->isValidate() ? "modal" : ""}} data-target="#fav_largeModal{{$user->id}}"> <i class="icon-cursor icons"></i></a> <br>
+                                    <a class="btn btn-rounded card-text py-2 " style="border: 1px solid gray" href="{{$me->isValidate() ? ""  : url('/packages')}}" data-toggle={{$me->isValidate() ? "modal" : ""}} data-target="#fav_largeModal{{$user->id}}"> <i class="fa-regular fa-paper-plane"></i></a> <br>
                                     <span style="white-space:nowrap; font-size:9px"> Send
                                         Proposal</span>
 
@@ -1423,8 +1420,7 @@ $me=auth()->user();
 
                                             <div class="text-right">
                                                 <button type="submit" class="bg-white text-right"
-                                                    style="border: none; margin:0px; padding:0px;"><i
-                                                        class="icon-cursor icons btn btn-danger"></i> Send Proposal</button>
+                                                    style="border: none; margin:0px; padding:0px;"><i class="fa-regular fa-paper-plane btn btn-danger"></i> Send Proposal</button>
                                             </div>
                                         </form>
                                     </div>

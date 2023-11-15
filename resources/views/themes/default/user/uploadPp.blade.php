@@ -47,6 +47,40 @@ body {
   border: 0;
   transition: all .2s ease;
 }
+.image-upload-wrap {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.file-upload-input {
+    display: none;
+}
+
+.file-upload-label {
+    cursor: pointer;
+    display: block;
+}
+
+.file-upload-image {
+    width: 100%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #ddd; /* Add a border for styling */
+}
+
+.drag-text {
+    text-align: center;
+}
+
+/* Style the "Choose File" button */
+.file-upload-label::file-selector-button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    border-radius: 4px;
+}
 
 .file-upload-content {
   display: none;
@@ -130,34 +164,32 @@ body {
 @endpush
 @section('content')
 <div style="background-color: #f9ea8f; background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);">
-
-
-
-
-
     <div class="row text-center">
       <div class="col-md-12 text-center">
           <div class="overflow-hidden mb-1">
           </div>
           <form action="{{ route('uploadPp', $me->id) }}" role="form" method="POST"
-            class="needs-validation" enctype="multipart/form-data">
+            class="needs-validation mt-5 py-5" enctype="multipart/form-data">
             @csrf
             <div class="row d-flex justify-content-center">
                 <div class="col-md-5">
-                  <h5>UPLOAD YOUR PROFILE IMAGE</h5>
+                  <h5 class="pt-5">UPLOAD YOUR PROFILE IMAGE</h5>
                     <div class="card mb-4">
                         <div class="card-body">
-                            <div class="file-upload">
-                                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                            <div class="file-upload my-5">
+                               
 
-                                <div class="image-upload-wrap">
-                                <input class="file-upload-input" type='file' name="profile_img" onchange="readURL(this);" accept="image/*" />
-                                <div class="drag-text">
-                                    <h3>Drag and drop a file or select add Image</h3>
-                                </div>
-                                </div>
+                              <button class="file-upload-content" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
                                 <div class="file-upload-content">
-                                <img class="file-upload-image" src="#" alt="your image" />
+                                  {{-- <input class="file-upload-input" type='file' name="profile_img" onchange="readURL(this);" accept="image/*" /> --}}
+                                  <img class="file-upload-image" src=""  />
+                                  <div class="image-upload-wrap">
+                                    <input class="file-upload-input" type='file' name="profile_img" style="display: none" id="profile-img-upload" onchange="readURL(this);" accept="image/*" />
+                                    <label for="profile-img-upload" class="file-upload-label my-3">
+                                        <img class="file-upload-image" src="{{ asset('frontend/images/about/01.jpg') }}" alt="your image" />
+                                    </label>
+                                </div>
                                 <div class="image-title-wrap">
                                     <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
                                 </div>

@@ -4,7 +4,7 @@
 
     <div class="container py-2 ">
 
-        <div class="row">
+        <div class="row my-5 pt-5">
 
             <div class="col-lg-3 mt-4 mt-lg-0">
 
@@ -17,7 +17,7 @@
 
                 <div class="bg-white px-3">
                     <div class="overflow-hidden mb-1">
-                        <h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">
+                        <h2 class="font-weight-normal text-7 mb-0 pt-3"><strong class="font-weight-extra-bold">
                             @if ($user->id == auth()->user()->id)My @else
                                     {{ $user->name }}@endif
                             </strong> Profile</h2>
@@ -30,7 +30,7 @@
                     <form action="{{ route('profilePost', $user->id) }}" role="form" method="POST" class="needs-validation"
                         enctype="multipart/form-data">
                         @csrf
-                        <h5 class="text-center">My Basic Informations & Appearance</h5>
+                        <h5 class="text-center py-3">My Basic Informations & Appearance</h5>
 
                         <div class="form-group row">
                             <label
@@ -283,7 +283,7 @@
                         </div>
 
 
-                        <h5 class="text-center">My Community & Social Background</h5>
+                        <h5 class="text-center py-3">My Community & Social Background</h5>
                         <div class="form-group row">
                             <label
                                 class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">Community</label>
@@ -395,7 +395,7 @@
 
 
 
-                        <h5 class="text-center">My Cultural Background</h5>
+                        <h5 class="text-center py-3">My Cultural Background</h5>
                         <div class="form-group row">
                             <label
                                 class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Country
@@ -506,7 +506,7 @@
                                 </select>
                             </div>
                         </div>
-                        <h5 class="text-center">My Education & Career</h5>
+                        <h5 class="text-center py-3">My Education & Career</h5>
                         <div class="form-group row">
                             <label
                                 class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Education
@@ -578,7 +578,7 @@
                         </div>
 
 
-                        <h5 class="text-center">My Hobbies, Interests & More</h5>
+                        <h5 class="text-center py-3">My Hobbies, Interests & More</h5>
                         <div class="form-group row">
                             <label
                                 class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Music</label>
@@ -732,7 +732,7 @@
 
 
 
-                        <h5 class="text-center">Lifestyle Info</h5>
+                        <h5 class="text-center py-3">Lifestyle Info</h5>
 
                         <div class="form-group row">
                             <label
@@ -829,7 +829,7 @@
                         </div>
 
 
-                        <h5 class="text-center">Family Information</h5>
+                        <h5 class="text-center py-3">Family Information</h5>
                         <div class="form-group row">
                             <label
                                 class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Family
@@ -941,7 +941,7 @@
                         </div>
 
 
-                        <h5 class="text-center">Contact Informaion</h5>
+                        <h5 class="text-center py-3">Contact Informaion</h5>
                         <div class="form-group row">
                             <label
                                 class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Time
@@ -979,7 +979,7 @@
 
 
 
-                        <h5 class="text-center">Permanent Address</h5>
+                        <h5 class="text-center py-3">Permanent Address</h5>
 
                         <div class="form-group row">
                             <label
@@ -1097,7 +1097,7 @@
 
 
 
-                        <h5 class="text-center">Present Address</h5>
+                        <h5 class="text-center py-3">Present Address</h5>
 
                         <div class="form-group row">
                             <label
@@ -1233,8 +1233,13 @@
                             <div class="col-lg-3">
 
                             </div>
-                            <div class="col-lg-9">
-                                <input class="" name="profile_public" type="checkbox" {{$user->profile_public==1?"checked":null}}> Profile Picture Public
+                            <div class="col-lg-9 d-flex">
+                                <div class="m-0">
+                                    <input class="" name="profile_public" type="checkbox" {{$user->profile_public==1?"checked":null}}> 
+                                </div>
+                                <div class="mx-2">
+                                    Profile Picture Public
+                                </div>
                             </div>
                         </div>
 
@@ -1242,8 +1247,8 @@
                             <div class="form-group col-lg-9">
 
                             </div>
-                            <div class="form-group col-lg-3">
-                                <input type="submit" value="Save" class="btn btn-primary btn-modern float-right"
+                            <div class="form-group col-lg-3 pb-5">
+                                <input type="submit" value="Save" style="background-color: #E31190;" class="btn btn-primary btn-modern float-right"
                                     data-loading-text="Loading...">
                             </div>
                         </div>

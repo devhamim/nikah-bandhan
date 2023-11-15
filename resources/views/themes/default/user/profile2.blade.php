@@ -25,7 +25,7 @@ $me = auth()->user();
 
         }
 
-        .profile-info-grid {
+        .profile-info-grid d-flex {
             display: grid;
             grid-template-columns: 40% 60%;
             color: black;
@@ -37,9 +37,9 @@ $me = auth()->user();
 @section('content')
     {{-- @include('alerts.alerts') --}}
 
-    <div class="container py-2">
+    <div class="container py-2 ">
 
-        <div class="row">
+        <div class="row pt-5 mt-5">
             <div class="col-md-12 text-center">
                 @include('alerts.alerts')
             </div>
@@ -100,7 +100,7 @@ $me = auth()->user();
 
                         <div class="col-lg-5">
 
-                            <div class="profile-card-grid">
+                            <div class="profile-card-grid d-flex">
                                 <div>
                                     <ul>
                                         <li style="white-space: nowrap">Account created by</li>
@@ -267,9 +267,7 @@ $me = auth()->user();
                     </div>
 
                     {{-- @if ($profile->id != auth()->user()->id || $me->isAdmin()) --}}
-                    @if (auth()->user()->isValidate() ||
-    $me->isAdmin() ||
-    $profile->id == $me->id)
+                    @if (auth()->user()->isValidate() || $me->isAdmin() || $profile->id == $me->id)
                         <div class="row bg-white py-1">
                             <div class="col-md-12">
                                 <h6 class="text-dark font-weight-bold"> My Basic Informations & Appearance</h6>
@@ -278,7 +276,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Age
                                             </div>
@@ -286,7 +284,7 @@ $me = auth()->user();
                                                 : {{ $profile->age() }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Marital Status
                                             </div>
@@ -294,7 +292,7 @@ $me = auth()->user();
                                                 : {{ $profile->marital_status }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Gender
                                             </div>
@@ -302,7 +300,7 @@ $me = auth()->user();
                                                 : {{ $profile->gender }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Height
                                             </div>
@@ -310,7 +308,7 @@ $me = auth()->user();
                                                 : {{ $profile->height }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Children
                                             </div>
@@ -320,7 +318,7 @@ $me = auth()->user();
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Complexion
                                             </div>
@@ -328,7 +326,7 @@ $me = auth()->user();
                                                 : {{ $profile->skin_color }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Body Type
                                             </div>
@@ -336,7 +334,7 @@ $me = auth()->user();
                                                 : {{ $profile->body_type }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Disabilities
                                             </div>
@@ -344,7 +342,7 @@ $me = auth()->user();
                                                 : {{ $profile->disability }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Blood Group
                                             </div>
@@ -355,7 +353,7 @@ $me = auth()->user();
 
 
                                       @hasrole('Admin')
-                                      <div class="profile-info-grid">
+                                      <div class="profile-info-grid d-flex">
                                             <div>
                                                 Mobile
                                             </div>
@@ -364,7 +362,7 @@ $me = auth()->user();
                                             </div>
                                         </div>
 
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Gmail
                                             </div>
@@ -376,7 +374,7 @@ $me = auth()->user();
 
                                    @if(auth()->user()->checkContactUserPack($profile->id) > 0 )
 
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Mobile
                                             </div>
@@ -385,7 +383,7 @@ $me = auth()->user();
                                             </div>
                                         </div>
 
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Gmail
                                             </div>
@@ -409,7 +407,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Community
                                             </div>
@@ -418,7 +416,7 @@ $me = auth()->user();
                                                 {{ $profile->userReligion ? $profile->userReligion->name : $profile->religion }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Caste/Social
                                                 Order
@@ -430,7 +428,7 @@ $me = auth()->user();
 
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Family Value
                                             </div>
@@ -438,7 +436,7 @@ $me = auth()->user();
                                                 : {{ $profile->family_value }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Mother Tongue
                                             </div>
@@ -460,7 +458,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Country of Birth
                                             </div>
@@ -468,7 +466,7 @@ $me = auth()->user();
                                                 : {{ $profile->country }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Grew Up In
                                             </div>
@@ -479,7 +477,7 @@ $me = auth()->user();
 
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Personal Values
                                             </div>
@@ -487,7 +485,7 @@ $me = auth()->user();
                                                 : {{ $profile->personal_value }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Can Speak
                                             </div>
@@ -510,7 +508,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Education
                                             </div>
@@ -518,7 +516,7 @@ $me = auth()->user();
                                                 : {{ $profile->education_level }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 University
                                             </div>
@@ -526,7 +524,7 @@ $me = auth()->user();
                                                 : {{ $profile->university }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Organization
                                             </div>
@@ -537,7 +535,7 @@ $me = auth()->user();
 
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Major Subject
                                             </div>
@@ -545,7 +543,7 @@ $me = auth()->user();
                                                 : {{ $profile->major_subject }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Designation
                                             </div>
@@ -567,7 +565,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Favourite Music
                                             </div>
@@ -575,7 +573,7 @@ $me = auth()->user();
                                                 : {{ $profile->music }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Preferred
                                                 Movie
@@ -584,7 +582,7 @@ $me = auth()->user();
                                                 : {{ $profile->movie }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Dress
                                                 Style
@@ -596,7 +594,7 @@ $me = auth()->user();
 
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Favourite
                                                 Reads
@@ -605,7 +603,7 @@ $me = auth()->user();
                                                 : {{ $profile->book }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Favourite
                                                 Cooking
@@ -628,7 +626,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Religious
                                                 View
@@ -637,7 +635,7 @@ $me = auth()->user();
                                                 : {{ $profile->religious_view }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Diet
                                             </div>
@@ -649,7 +647,7 @@ $me = auth()->user();
 
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Drink
                                             </div>
@@ -657,7 +655,7 @@ $me = auth()->user();
                                                 : {{ $profile->drink }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Smoke
                                             </div>
@@ -679,7 +677,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Family Type
                                             </div>
@@ -687,7 +685,7 @@ $me = auth()->user();
                                                 : {{ $profile->family_type }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Father
                                                 Prof
@@ -696,7 +694,7 @@ $me = auth()->user();
                                                 : {{ $profile->father_prof }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 No
                                                 of Brothers
@@ -705,7 +703,7 @@ $me = auth()->user();
                                                 : {{ $profile->no_bro }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 No
                                                 of Sisters
@@ -718,7 +716,7 @@ $me = auth()->user();
 
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Family
                                                 Status
@@ -727,7 +725,7 @@ $me = auth()->user();
                                                 : {{ $profile->family_status }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Mother
                                                 Prof
@@ -736,7 +734,7 @@ $me = auth()->user();
                                                 : {{ $profile->mother_prof }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 No
                                                 of Married Brothers
@@ -745,7 +743,7 @@ $me = auth()->user();
                                                 : {{ $profile->no_bro_m }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 No
                                                 of Married Sisters
@@ -770,7 +768,7 @@ $me = auth()->user();
                                 <div class="col-md-12">
                                     <div class="row py-3">
                                         <div class="col-md-6">
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Looking
                                                     For
@@ -779,7 +777,7 @@ $me = auth()->user();
                                                     : {{ $profile->looking_for }}
                                                 </div>
                                             </div>
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Height
                                                     Range
@@ -789,7 +787,7 @@ $me = auth()->user();
                                                     {{ $profile->pertnerPreference->max_height }}
                                                 </div>
                                             </div>
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Religion
                                                 </div>
@@ -797,7 +795,7 @@ $me = auth()->user();
                                                     :{{ $profile->pertnerPreference->ppReligion? $profile->pertnerPreference->ppReligion->name: $profile->pertnerPreference->religion }}
                                                 </div>
                                             </div>
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Children?
                                                 </div>
@@ -805,7 +803,7 @@ $me = auth()->user();
                                                     : {{ $profile->pertnerPreference->children }}
                                                 </div>
                                             </div>
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Physical
                                                     Disability
@@ -819,7 +817,7 @@ $me = auth()->user();
 
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Age
                                                     Range
@@ -829,7 +827,7 @@ $me = auth()->user();
                                                     {{ $profile->pertnerPreference->max_age }}years
                                                 </div>
                                             </div>
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Study
                                                 </div>
@@ -837,7 +835,7 @@ $me = auth()->user();
                                                     : {{ $profile->pertnerPreference->study }}
                                                 </div>
                                             </div>
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Profession
                                                 </div>
@@ -845,7 +843,7 @@ $me = auth()->user();
                                                     : {{ $profile->pertnerPreference->profession }}
                                                 </div>
                                             </div>
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Skin
                                                     Color
@@ -871,7 +869,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Time
                                                 To Call
@@ -880,7 +878,7 @@ $me = auth()->user();
                                                 : {{ $profile->call_time }}
                                             </div>
                                         </div>
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Relation
                                             </div>
@@ -891,7 +889,7 @@ $me = auth()->user();
 
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Contact
                                                 Person
@@ -903,7 +901,7 @@ $me = auth()->user();
 
 
                                         @hasrole('Admin')
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                             Guardian Number
                                             </div>
@@ -913,7 +911,7 @@ $me = auth()->user();
                                         </div>
                                         @else
                                         @if(auth()->user()->checkContactUserPack($profile->id) > 0 )
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                             Guardian Number
                                             </div>
@@ -938,7 +936,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Country
                                             </div>
@@ -947,7 +945,7 @@ $me = auth()->user();
                                             </div>
                                         </div>
                                         @if ($profile->permanent_country == 'Bangladesh')
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     District
                                                 </div>
@@ -961,7 +959,7 @@ $me = auth()->user();
                                     </div>
                                     <div class="col-md-6">
                                         @if ($profile->permanent_country == 'Bangladesh')
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Division
                                                 </div>
@@ -971,7 +969,7 @@ $me = auth()->user();
                                                 </div>
                                             </div>
 
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Upazilla
                                                 </div>
@@ -995,7 +993,7 @@ $me = auth()->user();
                             <div class="col-md-12">
                                 <div class="row py-3">
                                     <div class="col-md-6">
-                                        <div class="profile-info-grid">
+                                        <div class="profile-info-grid d-flex">
                                             <div>
                                                 Country
                                             </div>
@@ -1004,7 +1002,7 @@ $me = auth()->user();
                                             </div>
                                         </div>
                                         @if ($profile->present_country == 'Bangladesh')
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Division
                                                 </div>
@@ -1013,7 +1011,7 @@ $me = auth()->user();
                                                     {{ $profile->userPresentDivision ? $profile->userPresentDivision->name : $profile->present_division }}
                                                 </div>
                                             </div>
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Postal
                                                     Code
@@ -1027,7 +1025,7 @@ $me = auth()->user();
                                     </div>
                                     <div class="col-md-6">
                                         @if ($profile->present_country == 'Bangladesh')
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     District
                                                 </div>
@@ -1037,7 +1035,7 @@ $me = auth()->user();
                                                 </div>
                                             </div>
 
-                                            <div class="profile-info-grid">
+                                            <div class="profile-info-grid d-flex">
                                                 <div>
                                                     Upazilla
                                                 </div>

@@ -89,7 +89,7 @@ $me = auth()->user();
 
                         <div class="col-md-5">
 
-                            <div class="profile-card-grid">
+                            <div class="profile-card-grid d-flex" style="display: flex">
                                 <div>
                                     <ul>
                                         <li style="white-space: nowrap">Account created by</li>
