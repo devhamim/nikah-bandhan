@@ -47,10 +47,12 @@ $me = auth()->user();
                                         <label for="" class="col-md-4 form-label">Created By</label>
                                         <select name="profile_created_by" id="" class="form-control col-md-8" style="width: 80%; margin: 0 auto" required>
                                             <option value="">Select...</option>
+                                            {{ $userSettingFields }}
+                                            
                                             @foreach ($userSettingFields[1]->values as $value)
                                                 <option value="{{ $value->title }}">
                                                     {{ $value->title }}</option>
-                                            @endforeach
+                                            @endforeach 
                                         </select>
                                     </div>
 
