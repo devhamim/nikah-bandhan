@@ -190,8 +190,10 @@ public function userLogin(Request $request)
   public function familyInfo()
   {
     //   dd('ok');
-
-    return view('registar.familyInfo');
+    $userSettingFields = UserSettingField::all();
+    return view('registar.familyInfo', [
+      'userSettingFields'=>$userSettingFields,
+    ]);
   }
 
   public function contactInfo()
