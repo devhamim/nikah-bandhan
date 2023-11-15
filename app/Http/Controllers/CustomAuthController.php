@@ -173,8 +173,10 @@ public function userLogin(Request $request)
   public function physicalAttribute()
   {
     //   dd('ok');
-
-    return view('registar.physicalAttribute');
+    $userSettingFields = UserSettingField::all();
+    return view('registar.physicalAttribute', [
+      'userSettingFields'=>$userSettingFields,
+    ]);
   }
 
 
